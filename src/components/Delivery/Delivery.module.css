@@ -1,0 +1,47 @@
+.delivery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E3ECF5;
+}
+.title {
+    text-align: center;
+    font-size: 4.5em;
+    color: #F7D22D;
+    margin: 50px 0;
+
+}
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 570px;
+    background-image: url("../../../public/images/bg.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.box img {
+    width: 130px;
+    position: absolute;
+    top: 75px;
+}
+.box h2 {
+    font-size: 2.5em;
+    color: black;
+    margin-bottom: 20px;
+}
+.box p {
+    text-align: center;
+    width: 70%;
+    font-size: 1.9em;
+    line-height: 1.5;
+    color: black;
+    margin-bottom: 20px;
+}
+.container {
+    width: 100%;
+    padding: 0 10px;
+}

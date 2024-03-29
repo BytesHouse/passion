@@ -25,7 +25,9 @@ const ProductCard = ({product}: ProductCardProps) => {
                 </div>
                 <div className={cls.info}>
                     <p className={cls.title}>{name}</p>
-                    <p className={cls.description}>{description}</p>
+                    <p className={cls.description}>
+                        {description}
+                    </p>
                     <button onClick={handleAddToCart} className={cls.addBtn} type='button'>В корзину</button>
                 </div>
             </div>

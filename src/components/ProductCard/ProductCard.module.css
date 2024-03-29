@@ -41,6 +41,7 @@
     color: #686466;
 }
 .addBtn {
+    border: none;
     font-size: 2.8em;
     padding: 15px 55px;
     background-color: #F7D22D;
