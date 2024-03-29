@@ -1,0 +1,20 @@
+.container {
+    max-width: 1140px;
+    min-width: 380px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+.list {
+    display: grid;
+    grid-template-columns: 1fr;
+    list-style: none;
+    gap: 30px;
+}
+.title {
+    font-size: 3.5em;
+    color: #F7D22D;
+    font-weight: 700;
+    margin-bottom: 20px;
+}

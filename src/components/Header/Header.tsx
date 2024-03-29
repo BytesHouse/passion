@@ -7,6 +7,7 @@ const Header = () => {
         <div className={cls.header}>
             <div className={cls.container}>
                 <Logo/>
+                <p>Maracuya</p>
                 <Burger/>
             </div>
         </div>

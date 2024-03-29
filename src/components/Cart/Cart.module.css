@@ -1,0 +1,19 @@
+.cart {
+    font-size: 2.5em;
+    cursor: pointer;
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    background-color: #F7D22D;
+    padding: 20px 50px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.count {
+    border-left: 2px solid black ;
+    padding: 0 5px 0px 10px ;
+}
