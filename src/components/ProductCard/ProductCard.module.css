@@ -49,3 +49,6 @@
     color: #473E43;
     align-self: flex-start;
 }
+.addBtn:disabled{
+    background-color: #D3D3D3;
+}

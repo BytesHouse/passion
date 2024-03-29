@@ -1,6 +1,7 @@
 import cls from './ProductCard.module.css'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../features/cart/cartSlice";
+import {RootState} from "../../store/store";
 interface ProductCardProps {
     product: {
         id: number,
@@ -13,9 +14,11 @@ interface ProductCardProps {
 const ProductCard = ({product}: ProductCardProps) => {
     const {name, description, price, image} = product
     const dispatch = useDispatch();
+    const {cart} = useSelector((state: RootState) => state.cart)
     const handleAddToCart = () => {
         dispatch(addToCart(product))
     }
+    const dis = cart.find((item) => item.id === product.id)
     return (
         <li className={cls.card}>
             <div className={cls.content}>
@@ -28,7 +31,9 @@ const ProductCard = ({product}: ProductCardProps) => {
                     <p className={cls.description}>
                         {description}
                     </p>
-                    <button onClick={handleAddToCart} className={cls.addBtn} type='button'>В корзину</button>
+                    <button disabled={Boolean(dis)} onClick={handleAddToCart} className={cls.addBtn} type='button'>
+                        {dis ? 'Добавлено' :'В корзину'}
+                    </button>
                 </div>
             </div>
         </li>
