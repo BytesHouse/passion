@@ -1,6 +1,7 @@
 .wrapper {
     padding-top: 155px;
     position: fixed;
+    overflow: scroll;
     top: 0;
     bottom: 0;
     left: 0;
@@ -17,9 +18,103 @@
     display: flex;
     flex-direction: column;
 }
+.body {
+}
+.item {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 45px;
+    border-bottom: 1px solid gray;
+
+}
 .closeModal {
     position: absolute;
     right: 15px;
     width: 10em;
     height: 10em;
+}
+.image img {
+    width: 270px;
+    height: 270px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 50%;
+}
+.name {
+    flex: 1;
+}
+.name p {
+    font-size: 2.5em;
+    font-weight: 600;
+}
+.close {
+    width: 90px;
+    height: 90px;
+    background-color: inherit;
+    border: 1px solid black;
+    font-size: 52px;
+    font-weight: 200;
+    color: black;
+    border-radius: 50%;
+}
+.count {
+    background-color: #F3F3F7;
+    display: flex;
+    border-radius: 8px;
+    max-width: 320px;
+}
+.count button {
+    outline: none;
+    border: none;
+    background-color: inherit;
+    font-size: 4.5em;
+    color: #696F7A;
+    flex: 1;
+    border-radius: 8px;
+}
+.count span {
+    font-size: 3.5em;
+    align-self: center;
+}
+.price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.price p {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #F7D22D;
+}
+.name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.footer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 35px;
+}
+.total {
+    font-size: 3.5em;
+    font-weight: 400;
+}
+.total span {
+    font-weight: 600;
+}
+.btn {
+    font-size: 3.5em;
+    background: #F7D22D;
+    padding: 20px 50px;
+    color: black;
+    border-radius: 8px;
+}
+.empty {
+    font-size: 5.5em;
+    text-align: center;
+    padding: 150px 0;
 }

@@ -1,4 +1,6 @@
 import cls from './ProductCard.module.css'
+import {useDispatch} from "react-redux";
+import {addToCart} from "../../features/cart/cartSlice";
 interface ProductCardProps {
     product: {
         id: number,
@@ -10,6 +12,10 @@ interface ProductCardProps {
 }
 const ProductCard = ({product}: ProductCardProps) => {
     const {name, description, price, image} = product
+    const dispatch = useDispatch();
+    const handleAddToCart = () => {
+        dispatch(addToCart(product))
+    }
     return (
         <li className={cls.card}>
             <div className={cls.content}>
@@ -20,7 +26,7 @@ const ProductCard = ({product}: ProductCardProps) => {
                 <div className={cls.info}>
                     <p className={cls.title}>{name}</p>
                     <p className={cls.description}>{description}</p>
-                    <button className={cls.addBtn} type='button'>В корзину</button>
+                    <button onClick={handleAddToCart} className={cls.addBtn} type='button'>В корзину</button>
                 </div>
             </div>
         </li>
