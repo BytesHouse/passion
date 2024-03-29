@@ -1,0 +1,73 @@
+.footer{margin-top: 2em;
+
+}
+
+.flexPhone{
+    display: flex; 
+    justify-content: space-between;
+    margin: 1em;
+
+}
+.flexP{
+    padding: 3em;
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+}
+.grid2x2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-top: 0.5em;
+}
+.flexInfo{
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    font-size: 2em;
+    text-align: center;
+    gap: 1em;
+}
+.button{
+    width: 80%;
+    font-size: 2.5em;
+    background: #F3F3F7;
+    border: 0;
+    border-radius: 3em;
+    padding: 0.5em; 
+    margin-top: 0.5em;
+
+}
+.actionBlock{
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+}
+.flexPhone p{
+  
+    gap: 0px;
+    opacity: 0px;
+    font-family: Montserrat;
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 25.6px;
+    text-align: left;
+    color: #F7D22D;
+;        
+}
+.container {
+    max-width: 1140px;
+    min-width: 320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.container p {
+    font-size: 64px;
+    font-weight: bold;
+    font-family: 'Courgette', cursive;
+}
