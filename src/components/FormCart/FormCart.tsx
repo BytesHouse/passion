@@ -4,6 +4,7 @@ import styles from './FormCart.module.css';
 import { sendMessage } from "../../api/telegram";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import { getFormatedString } from "./helpers/getFormatedString";
 
 const FormCart = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -15,15 +16,13 @@ const FormCart = () => {
     });
     const [errors, setErrors] = useState<{[key: string]: string}>({});
 
-    const {cart} = useSelector((state:RootState) => state.cart)
+    const {cart, total} = useSelector((state:RootState) => state.cart)
+    const totalWithDelivery = total + 70;
 
     useEffect(()=>{
         const tmp = cart.map((item: any)=>{
             return {
-                id: item.id,
-                name: item.name,
-                count: item.count,
-                
+                [item.name]: `${item.count}шт. ${Number(item.price * item.count).toFixed(2)}руб.`,
             }
         })
         setFormData({...formData, cart: JSON.stringify(tmp)})
@@ -59,7 +58,15 @@ const FormCart = () => {
 
         // Отправка сообщения
         try {
-            const message = `Имя: ${name}\nТелефон: ${phone}\nАдрес: ${address} Корзина: ${cart}`;
+            const message = `
+                        Имя: ${name}
+                        Телефон: ${phone}
+                        Адрес: ${address}
+                        ---------------------\nКорзина: \n${getFormatedString(cart)}
+                        Сумма: ${total} ₽
+                        Доставка: 70 ₽
+                        Итого: ${totalWithDelivery} ₽
+            `;
             setIsLoading(true);
             await sendMessage(message);
             console.log('Message sent successfully!');
