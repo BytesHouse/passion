@@ -1,0 +1,36 @@
+.my-paragraph {
+    padding: 0 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    z-index: 10;
+    font-size: 3.5em;
+    background-color: #F7D22D;
+    transition: all .5s ease;
+}
+/* === Enter Transition === */
+.myclass-enter {
+    transform: translateY(-100%);
+}
+
+.myclass-enter-active {
+    transform: translateY(0%);
+}
+
+.myclass-enter-done {
+    transform: translateY(0%);
+}
+
+.my-div {
+    padding: 35px 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 45px;
+}

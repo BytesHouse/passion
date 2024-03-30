@@ -1,8 +1,8 @@
 import cls from './Burger.module.css';
-const Burger = () => {
+const Burger = ({enter}: {enter: any}) => {
     return (
-        <button className={cls.burger} type="button">
-            <svg width="145" height="145" viewBox="0 0 39 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <button onClick={enter} className={cls.burger} type="button">
+            <svg width="100" height="100" viewBox="0 0 39 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="39" height="3" rx="1.5" fill="#686466"/>
                 <rect y="12" width="39" height="3" rx="1.5" fill="#686466"/>
                 <rect y="24" width="39" height="3" rx="1.5" fill="#686466"/>

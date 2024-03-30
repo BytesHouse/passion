@@ -11,7 +11,11 @@
     padding: 10px;
 }
 .container p {
-    font-size: 64px;
-    font-weight: bold;
-    font-family: 'Courgette', cursive;
+    font-size: 100px;
+    font-weight: 100;
+    font-family: 'Onest', cursive;
+}
+.span {
+    color: #ef3a65;
+    font-weight: 400;
 }
