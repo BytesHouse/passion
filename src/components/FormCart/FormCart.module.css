@@ -2,6 +2,13 @@
     display: flex;
     flex-direction: column;
 }
+form{
+    width: 100%;width: 100%;
+}
+.flexCol{
+    display: flex;
+    flex-direction: column;
+}
 .flexCol div{
     display: flex;
     flex-direction: column;
@@ -9,6 +16,26 @@
     padding: 1em 0;
 }
 .button{
+    font-size: 2.5em;
+    background: #F3F3F7;
+    border: 0;
+    border-radius: 1em;
+    margin-top: 2em;
+    justify-self: center;
+    padding: 1em;
     margin: auto 20%;
-    padding: 1em 0;
+
 }
+.flexCol div input{
+    width: 100%;
+    border: 2px solid #E3ECF5;
+    border-radius: 0.5em;
+    padding: 1em;
+    font-size: 1.5em;
+}
+.flexCol div label{
+    padding: 0.5em 0;
+    margin-left: 1em;
+    font-size: 1.5em;
+}
+/*  */
