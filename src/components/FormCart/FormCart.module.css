@@ -12,18 +12,20 @@ form{
 .flexCol div{
     display: flex;
     flex-direction: column;
-    margin: auto 20%;
+    margin: auto 5%;
     padding: 1em 0;
 }
 .button{
-    font-size: 2.5em;
-    background: #F3F3F7;
+    font-size: 3.5em;
+    font-weight: bold;
+    background: #F7D22D;
+    color: #ffffff;
     border: 0;
     border-radius: 1em;
     margin-top: 2em;
     justify-self: center;
     padding: 1em;
-    margin: auto 20%;
+    margin: auto 5%;
 
 }
 .flexCol div input{
@@ -31,11 +33,12 @@ form{
     border: 2px solid #E3ECF5;
     border-radius: 0.5em;
     padding: 1em;
-    font-size: 1.5em;
+    font-size: 3em;
 }
 .flexCol div label{
     padding: 0.5em 0;
     margin-left: 1em;
-    font-size: 1.5em;
+    font-size: 3em;
+    font-weight: bold;
 }
 /*  */

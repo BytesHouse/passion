@@ -47,7 +47,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className={styles.button2}><button>Написать нам</button></div>
-                <p className={styles.cop}>Created by S-Terra-Soft</p>
+                <p className={styles.cop}>Created by <a href="https://sterrasoft.com/" target="blanc">S-Terra-Soft</a></p>
 
             </div>
         </div>
