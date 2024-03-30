@@ -8,6 +8,7 @@ const Main = () => {
             <Products/>
             <Delivery/>
             <Map/>
+            <p>{process.env.GOOGLE_MAP_API}</p>
         </main>
     );
 };
