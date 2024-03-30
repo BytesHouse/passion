@@ -2,15 +2,21 @@ import Logo from "../Logo/Logo";
 import Burger from "../Burger/Burger";
 import cls from './Header.module.css';
 import {CSSTransition} from 'react-transition-group'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import './style.css';
 
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
     const handleClick = () => {
-        console.log('eep')
         setIsEnter((prev: boolean) => !prev);
     }
+    useEffect(()=>{
+        if(isEnter){
+            document.body.style.overflow = 'hidden';
+        }else{
+            document.body.style.overflow = 'auto';
+        }
+    }, [isEnter])
     return (
         <div className={cls.header}>
             <div className={cls.container}>
