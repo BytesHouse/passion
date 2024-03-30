@@ -1,17 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../Logo/Logo";
 import styles from './FormCart.module.css';
 import { sendMessage } from "../../api/telegram";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { getFormatedString } from "./helpers/getFormatedString";
 
 const FormCart = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
-        address: ''
+        address: '',
+        cart: '',
     });
     const [errors, setErrors] = useState<{[key: string]: string}>({});
 
+    const {cart, total} = useSelector((state:RootState) => state.cart)
+    const totalWithDelivery = total + 70;
+
+    useEffect(()=>{
+        const tmp = cart.map((item: any)=>{
+            return {
+                [item.name]: `${item.count}шт. ${Number(item.price * item.count).toFixed(2)}руб.`,
+            }
+        })
+        setFormData({...formData, cart: JSON.stringify(tmp)})
+    },[cart])
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
@@ -27,7 +42,7 @@ const FormCart = () => {
         e.preventDefault();
 
    
-        const { name, phone, address } = formData;
+        const { name, phone, address, cart } = formData;
         if (!name.trim()) {
             setErrors({ ...errors, name: 'Введите имя' });
             return;
@@ -43,7 +58,15 @@ const FormCart = () => {
 
         // Отправка сообщения
         try {
-            const message = `Имя: ${name}\nТелефон: ${phone}\nАдрес: ${address}`;
+            const message = `
+                        Имя: ${name}
+                        Телефон: ${phone}
+                        Адрес: ${address}
+                        ---------------------\nКорзина: \n${getFormatedString(cart)}
+                        Сумма: ${total} ₽
+                        Доставка: 70 ₽
+                        Итого: ${totalWithDelivery} ₽
+            `;
             setIsLoading(true);
             await sendMessage(message);
             console.log('Message sent successfully!');
@@ -63,6 +86,7 @@ const FormCart = () => {
                     <div>
                         <label htmlFor="name">Имя</label>
                         <input
+                            placeholder="Имя"
                             id="name"
                             name="name"
                             type="text"
@@ -74,6 +98,7 @@ const FormCart = () => {
                     <div>
                         <label htmlFor="phone">Телефон</label>
                         <input
+                            placeholder="Телефон"   
                             id="phone"
                             name="phone"
                             type="text"
@@ -85,6 +110,8 @@ const FormCart = () => {
                     <div>
                         <label htmlFor="address">Адрес</label>
                         <input
+                            placeholder="Адрес"
+                            
                             id="address"
                             name="address"
                             type="text"
@@ -93,10 +120,11 @@ const FormCart = () => {
                         />
                         {errors.address && <span className={styles.error}>{errors.address}</span>}
                     </div>
-                </div>
-                <button type="submit" className={styles.button} disabled={isLoading}>
+                    <button type="submit" className={styles.button} disabled={isLoading}>
                     {isLoading ? 'Отправка...' : 'Оформить заказ'}
                 </button>
+                </div>
+                
             </form>
         </div>
     );
