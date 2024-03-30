@@ -1,5 +1,5 @@
 .wrapper {
-    padding-top: 155px;
+    padding-top: 80px;
     position: fixed;
     overflow: scroll;
     top: 0;
@@ -19,12 +19,16 @@
     flex-direction: column;
 }
 .body {
+    max-height: 65svh;
+    overflow: scroll;
 }
 .item {
     padding: 20px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 5px;
     gap: 45px;
     border-bottom: 1px solid gray;
 
