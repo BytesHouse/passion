@@ -1,57 +1,97 @@
-import { useForm } from "@mantine/form";
+import { useState } from "react";
 import Logo from "../Logo/Logo";
 import styles from './FormCart.module.css';
-import { useState } from "react";
 import { sendMessage } from "../../api/telegram";
 
 const FormCart = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const form = useForm({
-        initialValues: {
-          name: '',
-          phone: '',
-          adress: '',         
-        },
-        validate: {
-        name: (value) => (value.trim() !== '' ? null : 'Введите имя'),
-        phone: (value) => (value.trim() !== '' ? null : 'Введите телефон'),
-        adress: (value) => (value.trim() !== '' ? null : 'Введите адрес'),
-        },
-      });
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        address: ''
+    });
+    const [errors, setErrors] = useState<{[key: string]: string}>({});
 
-    const handleSubmit = async (values: { name: string; phone: string; adress: string; }) => {
-        console.log("hello");
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+        setErrors({
+            ...errors,
+            [e.target.name]: ''
+        });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        // Валидация формы
+        const { name, phone, address } = formData;
+        if (!name.trim()) {
+            setErrors({ ...errors, name: 'Введите имя' });
+            return;
+        }
+        if (!phone.trim()) {
+            setErrors({ ...errors, phone: 'Введите телефон' });
+            return;
+        }
+        if (!address.trim()) {
+            setErrors({ ...errors, address: 'Введите адрес' });
+            return;
+        }
+
+        // Отправка сообщения
         try {
-            const message = `Имя: ${values.name} Телефон: ${values.phone} Адрес: ${values.adress}`;
-
-            await sendMessage(message);
+            const message = `Имя: ${name} Телефон: ${phone} Адрес: ${address}`;
             setIsLoading(true);
+            await sendMessage(message);
             console.log('Message sent successfully!');
         } catch (error) {
             console.error('Error while sending message:', error);
-            form.setFieldError('name', 'Ошибка при отправке сообщения');
+            setErrors({ ...errors, name: 'Ошибка при отправке сообщения' });
         } finally {
             setIsLoading(false);
         }
-        console.log('values', values);
     };
-    
+
     return (
         <div className={styles.wrapper}>
             <Logo/>
-            <form onSubmit={form.onSubmit(handleSubmit)}>
+            <form onSubmit={handleSubmit}>
                 <div className={styles.flexCol}>
                     <div>
                         <label htmlFor="name">Имя</label>
-                        <input {...form.getInputProps('name')} id="name" type="text"  />
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            value={formData.name}
+                            onChange={handleChange}
+                        />
+                        {errors.name && <span className={styles.error}>{errors.name}</span>}
                     </div>
                     <div>
                         <label htmlFor="phone">Телефон</label>
-                        <input {...form.getInputProps('phone')} id="phone" type="text"  />
+                        <input
+                            id="phone"
+                            name="phone"
+                            type="text"
+                            value={formData.phone}
+                            onChange={handleChange}
+                        />
+                        {errors.phone && <span className={styles.error}>{errors.phone}</span>}
                     </div>
                     <div>
-                        <label htmlFor="adress">Адрес</label>
-                        <input {...form.getInputProps('adress')} id="adress" type="text"  />
+                        <label htmlFor="address">Адрес</label>
+                        <input
+                            id="address"
+                            name="address"
+                            type="text"
+                            value={formData.address}
+                            onChange={handleChange}
+                        />
+                        {errors.address && <span className={styles.error}>{errors.address}</span>}
                     </div>
                 </div>
                 <button type="submit" className={styles.button} disabled={isLoading}>
