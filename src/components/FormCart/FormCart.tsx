@@ -26,7 +26,7 @@ const FormCart = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // Валидация формы
+   
         const { name, phone, address } = formData;
         if (!name.trim()) {
             setErrors({ ...errors, name: 'Введите имя' });
@@ -43,7 +43,7 @@ const FormCart = () => {
 
         // Отправка сообщения
         try {
-            const message = `Имя: ${name} Телефон: ${phone} Адрес: ${address}`;
+            const message = `Имя: ${name}\nТелефон: ${phone}\nАдрес: ${address}`;
             setIsLoading(true);
             await sendMessage(message);
             console.log('Message sent successfully!');
