@@ -41,10 +41,14 @@
     color: #686466;
 }
 .addBtn {
+    border: none;
     font-size: 2.8em;
     padding: 15px 55px;
     background-color: #F7D22D;
     border-radius: 8px;
     color: #473E43;
     align-self: flex-start;
+}
+.addBtn:disabled{
+    background-color: #D3D3D3;
 }

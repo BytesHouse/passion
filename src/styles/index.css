@@ -12,7 +12,6 @@ html, body, #root {
 }
 
 body {
- background-color: #fbf8e9;
   font-family: 'Montserrat', sans-serif;
 }
 #root {
@@ -20,3 +19,8 @@ body {
     flex-direction: column;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}

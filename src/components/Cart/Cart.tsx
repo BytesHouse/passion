@@ -1,7 +1,7 @@
 import cls from './Cart.module.css';
 import {useSelector} from "react-redux";
 import {RootState} from "../../store/store";
-import CartIcon from "../../assets/icons/CartIcon";
+import CartIcon from "../../assets/icons/CartIcon/CartIcon";
 
 interface CartProps {
     show: () => void;

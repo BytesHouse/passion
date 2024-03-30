@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@mantine/form": "^7.7.1",
-    "@mantine/hooks": "^7.7.1",
     "@reduxjs/toolkit": "^2.2.2",
     "@types/node": "^16.18.91",
     "@types/react": "^18.2.73",
