@@ -1,0 +1,14 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+}
+.flexCol div{
+    display: flex;
+    flex-direction: column;
+    margin: auto 20%;
+    padding: 1em 0;
+}
+.button{
+    margin: auto 20%;
+    padding: 1em 0;
+}

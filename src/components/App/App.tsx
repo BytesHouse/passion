@@ -5,6 +5,7 @@ import CartModal from "../CartModal/CartModal";
 import {useState} from "react";
 import { useClickAway } from "@uidotdev/usehooks";
 import Footer from "../Footer/Footer";
+import FormCart from "../FormCart/FormCart";
 
 const App = () => {
     const [showModal, setShowModal] = useState(false);
@@ -22,6 +23,7 @@ const App = () => {
             <Main/>
             <Cart show={handleShowModal}/>
             {showModal && <CartModal refProps={ref}/>}
+            <FormCart />
             <Footer />
         </>
     );

@@ -36,17 +36,18 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <p>Остались вопросы? А мы всегда на связи:</p>
-                    <div>
-                        <div>Viber</div>
+                    <p><strong>Остались вопросы? А мы всегда на связи:</strong></p>
+                    <div className={styles.flexSocial}>
                         <div>Skype</div>
-                        <div>Messeger</div>
-                        <div>Telegram</div>
-                        <div>FaceBook</div>
-                        <div>ВКонтакте</div>
+                        <div>VK</div>
+                        <div>Telegtam</div>
+                        <div>FB</div>
+                        <div>Viber</div>
+                        <div>WhatsApp</div>
                     </div>
                 </div>
-                <p>Created by S-Terra-Soft</p>
+                <div className={styles.button2}><button>Написать нам</button></div>
+                <p className={styles.cop}>Created by S-Terra-Soft</p>
 
             </div>
         </div>
