@@ -114,5 +114,8 @@ align-items: flex-end;
     margin-top: 3em;
 }
 .container{
-    margin: 10% 0;
+    margin: 0 5% ;
+}
+.skypeIcon{
+color: #0059b3;
 }

@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { getFormatedString } from "./helpers/getFormatedString";
 
+
 const FormCart = () => {
+    
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -86,7 +88,7 @@ const FormCart = () => {
                     <div>
                         <label htmlFor="name">Имя</label>
                         <input
-                            placeholder="Владимир Владимирович"
+                            placeholder="Пётр Николаевич"
                             id="name"
                             name="name"
                             type="text"
@@ -119,12 +121,39 @@ const FormCart = () => {
                         />
                         {errors.address && <span className={styles.error}>{errors.address}</span>}
                     </div>
+<div>
+  <div className={styles.cart}>
+    Состав заказа
+  </div>
+<div className={styles.prodList}>
+    <ul>
+        <li>
+        {cart.map((item, index) => (
+                    <li key={index} className={styles.prodItem}>
+                        <div>
+                            {/* В качестве ключа используем первое свойство объекта, предполагая, что оно представляет имя товара */}
+                            <p>{item.name}</p>
+                            {/* Для описания товара используйте соответствующее значение объекта */}
+                            <span>Короткое описание товара</span>
+                            
+                        </div>
+                        {/* Выводим цену товара */}
+                        <p className={styles.price}>{item.price} руб</p>
+                    </li>
+                ))}
+        </li>
+    </ul>
+</div>
+</div>
+
+
                     <button type="submit" className={styles.button} disabled={isLoading}>
                     {isLoading ? 'Отправка...' : 'Оформить заказ'}
                 </button>
                 </div>
                 
             </form>
+
         </div>
     );
 };

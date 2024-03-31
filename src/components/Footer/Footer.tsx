@@ -1,5 +1,8 @@
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../Logo/Logo";
 import styles from './Footer.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faSkype, faTelegram, faViber, faVk, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
     return (
@@ -38,12 +41,12 @@ const Footer = () => {
                 <div>
                     <p className={styles.container}><strong>Остались вопросы? А мы всегда на связи:</strong></p>
                     <div className={styles.flexSocial}>
-                        <div>Skype</div>
-                        <div>VK</div>
-                        <div>Telegtam</div>
-                        <div>FB</div>
-                        <div>Viber</div>
-                        <div>WhatsApp</div>
+                    <FontAwesomeIcon icon={faSkype} size="2x" className={styles.skypeIcon} />
+                    <FontAwesomeIcon icon={faVk} size="2x" className={styles.skypeIcon} />
+                    <FontAwesomeIcon icon={faTelegram} size="2x" className={styles.skypeIcon} />
+                    <FontAwesomeIcon icon={faFacebook} size="2x" className={styles.skypeIcon} />
+                    <FontAwesomeIcon icon={faViber} size="2x" className={styles.skypeIcon} />
+                    <FontAwesomeIcon icon={faWhatsapp} size="2x" className={styles.skypeIcon} />
                     </div>
                 </div>
                 {/* <div className={styles.button2}><button>Написать нам</button></div> */}

@@ -41,4 +41,27 @@ form{
     font-size: 3em;
     font-weight: bold;
 }
-/*  */
+/*  Состав заказа*/
+
+.cart{
+    margin: 0;
+    font-size: 3em;
+    font-weight: 600;
+    color: #F7D22D;
+}
+
+.prodList ul{
+    list-style: none;
+}
+.prodItem{
+    display: flex;
+    justify-content: space-between;
+}
+.prodItem p{
+    font-size: 3em;
+}
+.price{
+    font-size: 2em;
+    font-weight: 600;
+    text-align: start;
+}
