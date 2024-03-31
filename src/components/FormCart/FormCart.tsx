@@ -86,7 +86,7 @@ const FormCart = () => {
                     <div>
                         <label htmlFor="name">Имя</label>
                         <input
-                            placeholder="Имя"
+                            placeholder="Владимир Владимирович"
                             id="name"
                             name="name"
                             type="text"
@@ -98,7 +98,7 @@ const FormCart = () => {
                     <div>
                         <label htmlFor="phone">Телефон</label>
                         <input
-                            placeholder="Телефон"   
+                            placeholder="Orange, Moldcell, IDC"   
                             id="phone"
                             name="phone"
                             type="text"
@@ -110,7 +110,7 @@ const FormCart = () => {
                     <div>
                         <label htmlFor="address">Адрес</label>
                         <input
-                            placeholder="Адрес"
+                            placeholder="ул. Ленина д. 101, кв. 4"
                             
                             id="address"
                             name="address"
