@@ -36,7 +36,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <p><strong>Остались вопросы? А мы всегда на связи:</strong></p>
+                    <p className={styles.container}><strong>Остались вопросы? А мы всегда на связи:</strong></p>
                     <div className={styles.flexSocial}>
                         <div>Skype</div>
                         <div>VK</div>
@@ -46,7 +46,7 @@ const Footer = () => {
                         <div>WhatsApp</div>
                     </div>
                 </div>
-                <div className={styles.button2}><button>Написать нам</button></div>
+                {/* <div className={styles.button2}><button>Написать нам</button></div> */}
                 <p className={styles.cop}>Created by <a href="https://sterrasoft.com/" target="blanc">S-Terra-Soft</a></p>
 
             </div>

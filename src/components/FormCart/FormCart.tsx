@@ -111,7 +111,6 @@ const FormCart = () => {
                         <label htmlFor="address">Адрес</label>
                         <input
                             placeholder="ул. Ленина д. 101, кв. 4"
-                            
                             id="address"
                             name="address"
                             type="text"

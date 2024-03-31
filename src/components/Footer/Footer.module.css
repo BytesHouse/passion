@@ -109,7 +109,10 @@ align-items: flex-end;
     font-family: 'Courgette', cursive;
 }
 .cop{
-    font-size: 3em;
+    font-size: 2em;
     text-align: center;
     margin-top: 3em;
+}
+.container{
+    margin: 10% 0;
 }
