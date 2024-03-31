@@ -2,8 +2,11 @@ import cls from './CartModal.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import React from "react";
 import {decTotal, incTotal, removeFromCart} from "../../features/cart/cartSlice";
-const CartModal = ({refProps}: {refProps: any}) => {
+const CartModal = ({refProps, show}: {refProps: any, show: any}) => {
     const {cart, total} = useSelector((state: any) => state.cart);
+    const handleClick = (e: any) => {
+        show(false);
+    }
     return (
             <div  className={cls.wrapper}>
                 <div ref={refProps} className={cls.modal}>
@@ -14,7 +17,7 @@ const CartModal = ({refProps}: {refProps: any}) => {
                     </div>
                     <div className={cls.footer}>
                         <div className={cls.total}>Сумма заказа: <span>{total} ₽</span></div>
-                        <button className={cls.btn}>Оформить заказ</button>
+                        <button onClick={handleClick} className={cls.btn}>Оформить заказ</button>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ const App = () => {
             <Header/>
             <Main/>
             <Cart show={handleShowModal}/>
-            {showModal && <CartModal refProps={ref}/>}
+            {showModal && <CartModal show={setShowModal} refProps={ref}/>}
             <FormCart />
             <Footer />
         </>
