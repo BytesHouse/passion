@@ -169,7 +169,7 @@ const FormCart = () => {
                 Сумма:
             </p>
             <p>
-                {total} pуб.
+                {total.toFixed(2)} pуб.
             </p>
         </div>
         <div>
@@ -181,7 +181,7 @@ const FormCart = () => {
                 Итого:
             </p>
             <p>
-                {total + delivery} pуб.
+                {(total + delivery).toFixed(2)} pуб.
             </p>
         </div>
 
