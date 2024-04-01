@@ -36,8 +36,8 @@ const cartSlice = createSlice({
             state.total += action.payload.price
         },
         removeFromCart: (state, action: PayloadAction<any>) => {
-            state.cart = state.cart.filter(item => item.id !== action.payload.id)
-            state.total -= action.payload.price
+            state.cart = state.cart.filter(item => item.id !== action.payload.item.id)
+            state.total -= +action.payload.item.price * +action.payload.count
         },
         incTotal: (state, action: PayloadAction<any>) => {
             state.total += action.payload.price

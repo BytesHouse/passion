@@ -16,7 +16,7 @@ const CartModal = ({refProps, show}: {refProps: any, show: any}) => {
                         )) : <p className={cls.empty}>Корзина пуста</p>}
                     </div>
                     <div className={cls.footer}>
-                        <div className={cls.total}>Сумма заказа: <span>{total} ₽</span></div>
+                        <div className={cls.total}>Сумма заказа: <span>{total.toFixed(2)} ₽</span></div>
                         <button onClick={handleClick} className={cls.btn}>Оформить заказ</button>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ const CartItem = ({item}: {item: any}) => {
         }
     }
     const handleRemove = () => {
-        dispatch(removeFromCart(item));
+        dispatch(removeFromCart({item, count}));
     }
     return (
         <div className={cls.item}>
@@ -53,7 +53,7 @@ const CartItem = ({item}: {item: any}) => {
             </div>
             <div className={cls.price}>
                 <button onClick={handleRemove} className={cls.close}>&times;</button>
-                <p>{count * item.price} ₽</p>
+                <p>{(count * item.price).toFixed(2)} ₽</p>
             </div>
         </div>
     );
