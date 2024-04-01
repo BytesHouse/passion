@@ -1,0 +1,12 @@
+.loading{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.loading p {
+    font-size: 3em;
+    font-weight: 600;
+    color: #F7D22D;
+}

@@ -2,14 +2,16 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Cart from "../Cart/Cart";
 import CartModal from "../CartModal/CartModal";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import { useClickAway } from "@uidotdev/usehooks";
 import Footer from "../Footer/Footer";
 import FormCart from "../FormCart/FormCart";
 import {useDispatch} from "react-redux";
 import {load} from "../../features/cart/cartSlice";
+import LoadingScreen from "../LoadingScreen/LoadingScreen";
 
 const App = () => {
+    const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
     if(localStorage.getItem('cart') === null) {
         localStorage.setItem('cart', JSON.stringify([]))
@@ -26,19 +28,27 @@ const App = () => {
         }
     };
 
-
-
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+    }, []);
 
     return (
         <>
-            <Header/>
-            <Main/>
-            <Cart show={handleShowModal}/>
-            {showModal && <CartModal show={setShowModal} refProps={ref}/>}
-            <FormCart />
-            <Footer />
+            { loading ? (
+            <LoadingScreen />
+                ) : (
+                    <>
+                    <Header/>
+                    <Main/>
+                    <Cart show={handleShowModal}/>
+                    {showModal && <CartModal show={setShowModal} refProps={ref}/>}
+                    <FormCart />
+                    <Footer />
+                    </>
+            )}
         </>
     );
-};
-
+}
 export default App;
