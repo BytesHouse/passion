@@ -10,6 +10,7 @@ import {clearCart} from "../../features/cart/cartSlice";
 
 const FormCart = () => {
     const dispatch = useDispatch();
+    const [delivery, setDelivery] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -40,9 +41,20 @@ const FormCart = () => {
             [e.target.name]: ''
         });
     };
-
+    useEffect(() => {
+        setDelivery(cart.length <= 3
+            ?
+            60
+            :
+            cart.length > 3 && cart.length <= 6
+                ?
+                50
+                :
+                35)
+    }, [cart]);
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
         const { name, phone, address, cart } = formData;
         if(cart.length === 2){
@@ -72,7 +84,7 @@ const FormCart = () => {
                         Адрес: ${address}
                         ---------------------\nКорзина: \n${getFormatedString(cart)}
                         Сумма: ${total} ₽
-                        Доставка: 70 ₽
+                        Доставка: ${delivery} ₽
                         Итого: ${totalWithDelivery} ₽
             `;
             setIsLoading(true);
@@ -162,14 +174,14 @@ const FormCart = () => {
         </div>
         <div>
             <p>Доставка:</p>
-            <p>Договорная</p>
+            <p>{delivery ?? 0} руб.</p>
         </div>
         <div>
             <p>
                 Итого:
             </p>
             <p>
-                {total} pуб.
+                {total + delivery} pуб.
             </p>
         </div>
 
