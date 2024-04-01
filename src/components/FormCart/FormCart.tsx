@@ -81,7 +81,7 @@ const FormCart = () => {
     };
 
     return (
-        <div className={styles.wrapper}>
+        <div id="contacts" className={styles.wrapper}>
             <Logo/>
             <form onSubmit={handleSubmit}>
                 <div className={styles.flexCol}>

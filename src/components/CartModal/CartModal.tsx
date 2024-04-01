@@ -17,7 +17,7 @@ const CartModal = ({refProps, show}: {refProps: any, show: any}) => {
                     </div>
                     <div className={cls.footer}>
                         <div className={cls.total}>Сумма заказа: <span>{total.toFixed(2)} ₽</span></div>
-                        <button onClick={handleClick} className={cls.btn}>Оформить заказ</button>
+                        <a href="#contacts" onClick={handleClick} className={cls.btn}>Оформить заказ</a>
                     </div>
                 </div>
             </div>

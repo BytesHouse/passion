@@ -4,6 +4,8 @@ import cls from './Header.module.css';
 import {CSSTransition} from 'react-transition-group'
 import {useEffect, useState} from "react";
 import './style.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faXTwitter} from "@fortawesome/free-brands-svg-icons";
 
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
@@ -29,7 +31,9 @@ const Header = () => {
                         — Как дела? <br/> <br/>
 
                         — Аааааааааааааа, я думала сова... <br/> <br/>
-                        <div onClick={() => setIsEnter((v) => !v)} className="my-div">X</div>
+                        <div onClick={() => setIsEnter((v) => !v)} className="my-div">
+                            <FontAwesomeIcon icon={faXTwitter} />
+                        </div>
                     </div>
                 </CSSTransition>
                 <Logo/>
