@@ -41,7 +41,7 @@ const FormCart = () => {
         });
     };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement> | any) => {
         e.preventDefault();
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
         const { name, phone, address, cart } = formData;
@@ -77,12 +77,7 @@ const FormCart = () => {
             `;
             setIsLoading(true);
             await sendMessage(message);
-            setFormData({
-                name: '',
-                phone: '',
-                address: '',
-                cart: '',
-            });
+            e.target.reset();
             alert('Заказ оформлен!');
             dispatch(clearCart());
         } catch (error) {
@@ -91,6 +86,7 @@ const FormCart = () => {
         } finally {
             setIsLoading(false);
         }
+
     };
 
     return (
