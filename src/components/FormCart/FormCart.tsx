@@ -43,8 +43,14 @@ const FormCart = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         const { name, phone, address, cart } = formData;
+        if(cart.length === 2){
+            setErrors({ ...errors, cart: 'Корзина пуста' });
+            alert('Корзина пуста');
+            return;
+        }
+
         if (!name.trim()) {
             setErrors({ ...errors, name: 'Введите имя' });
             return;
