@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import Logo from "../Logo/Logo";
 import styles from './FormCart.module.css';
 import { sendMessage } from "../../api/telegram";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { RootState } from "../../store/store";
 import { getFormatedString } from "./helpers/getFormatedString";
+import {clearCart} from "../../features/cart/cartSlice";
 
 
 const FormCart = () => {
-    
+    const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -70,7 +71,14 @@ const FormCart = () => {
             `;
             setIsLoading(true);
             await sendMessage(message);
-            console.log('Message sent successfully!');
+            setFormData({
+                name: '',
+                phone: '',
+                address: '',
+                cart: '',
+            });
+            alert('Заказ оформлен!');
+            dispatch(clearCart());
         } catch (error) {
             console.error('Error while sending message:', error);
             setErrors({ ...errors, name: 'Ошибка при отправке сообщения' });
@@ -154,7 +162,7 @@ const FormCart = () => {
         </div>
         <div>
             <p>Доставка:</p>
-            <p>0 руб.</p>
+            <p>Договорная</p>
         </div>
         <div>
             <p>

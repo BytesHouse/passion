@@ -47,6 +47,12 @@ const cartSlice = createSlice({
             state.total -= +action.payload.item.price * +action.payload.count
             localStorage.setItem('cart', JSON.stringify(state.cart))
         },
+        clearCart: (state) => {
+            state.cart = []
+            state.total = 0
+            localStorage.setItem('cart', JSON.stringify(state.cart))
+        }
+        ,
         incTotal: (state, action: PayloadAction<any>) => {
             state.total += action.payload.price
             state.cart = state.cart.map(item => {
@@ -80,6 +86,7 @@ const cartSlice = createSlice({
 export const {
     addToCart,
     removeFromCart,
+    clearCart,
     incTotal,
     decTotal,
     load
