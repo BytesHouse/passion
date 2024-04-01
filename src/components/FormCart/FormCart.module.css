@@ -9,7 +9,12 @@ form{
     display: flex;
     flex-direction: column;
 }
-.flexCol div{
+.flexCol span {
+    font-size: 1.5em;
+    color: red;
+    font-weight: bold;
+}
+.flexCol > div{
     display: flex;
     flex-direction: column;
     margin: auto 5%;
@@ -51,17 +56,40 @@ form{
 }
 
 .prodList ul{
+    margin: 45px 0;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .prodItem{
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .prodItem p{
     font-size: 3em;
 }
+.prodItem div {
+    flex: 1;
+}
 .price{
     font-size: 2em;
     font-weight: 600;
     text-align: start;
+}
+
+/* Total */
+.total{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 3em;
+    font-weight: 600;
+    color: #ef3a65;
+}
+.total > div {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
 }

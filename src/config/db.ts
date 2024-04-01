@@ -79,5 +79,13 @@ export const products = [
         image: 'https://storage.delikateska.ru/cache/a/a/okun_d2.jpg/w480.jpg',
         price: 80,
         count: 1
+    },
+    {
+        id: 10,
+        name: 'Лед',
+        description: 'Универсальный способ охлаждения напитков и продуктов. Прост в использовании. Освежает напитки, сохраняя их вкус и качество.',
+        image: 'https://vitaforte.ru/upload/iblock/e5b/830344_tov1-12463847.jpg',
+        price: 33,
+        count: 1
     }
 ]

@@ -31,13 +31,21 @@ const cartSlice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
+        load: (state, action: PayloadAction<any>) => {
+            state.cart = action.payload
+            state.total = action.payload.reduce((acc: number, item: Item) => {
+                return acc + item.price * item.count
+            }, 0)
+        },
         addToCart: (state, action: PayloadAction<any>) => {
             state.cart.push(action.payload)
             state.total += action.payload.price
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         },
         removeFromCart: (state, action: PayloadAction<any>) => {
             state.cart = state.cart.filter(item => item.id !== action.payload.item.id)
             state.total -= +action.payload.item.price * +action.payload.count
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         },
         incTotal: (state, action: PayloadAction<any>) => {
             state.total += action.payload.price
@@ -45,11 +53,13 @@ const cartSlice = createSlice({
                 if(item.id === action.payload.id) {
                     return {
                         ...item,
-                        count: action.payload + 1
+                        count: action.payload.count + 1
                     }
                 }
                 return item
             })
+            localStorage.setItem('cart', JSON.stringify(state.cart))
+
         },
         decTotal: (state, action: PayloadAction<any>) => {
             state.total -= action.payload.price
@@ -57,11 +67,12 @@ const cartSlice = createSlice({
                 if(item.id === action.payload.id) {
                     return {
                         ...item,
-                        count: action.payload - 1
+                        count: action.payload.count - 1
                     }
                 }
                 return item
             })
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         },
     }
 });
@@ -70,7 +81,8 @@ export const {
     addToCart,
     removeFromCart,
     incTotal,
-    decTotal
+    decTotal,
+    load
 } = cartSlice.actions
 
 export default cartSlice.reducer

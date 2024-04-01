@@ -25,7 +25,7 @@ const CartModal = ({refProps, show}: {refProps: any, show: any}) => {
 };
 
 const CartItem = ({item}: {item: any}) => {
-    const [count, setCount] = React.useState(1);
+    const [count, setCount] = React.useState(item.count);
     const dispatch = useDispatch();
     const increment = () => {
         setCount(count + 1);

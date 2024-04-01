@@ -43,7 +43,6 @@ const FormCart = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-   
         const { name, phone, address, cart } = formData;
         if (!name.trim()) {
             setErrors({ ...errors, name: 'Введите имя' });
@@ -127,22 +126,46 @@ const FormCart = () => {
   </div>
 <div className={styles.prodList}>
     <ul>
-        <li>
         {cart.map((item, index) => (
                     <li key={index} className={styles.prodItem}>
                         <div>
                             {/* В качестве ключа используем первое свойство объекта, предполагая, что оно представляет имя товара */}
                             <p>{item.name}</p>
                             {/* Для описания товара используйте соответствующее значение объекта */}
-                            <span>Короткое описание товара</span>
+                            {/*<span>Короткое описание товара</span>*/}
                             
                         </div>
                         {/* Выводим цену товара */}
-                        <p className={styles.price}>{item.price} руб</p>
+                        <p className={styles.price}>
+                            {Number(item.price * item.count).toFixed(2)} руб
+                        </p>
                     </li>
                 ))}
-        </li>
     </ul>
+    <hr/>
+    <div className={styles.total}>
+        <div>
+            <p>
+                Сумма:
+            </p>
+            <p>
+                {total} pуб.
+            </p>
+        </div>
+        <div>
+            <p>Доставка:</p>
+            <p>0 руб.</p>
+        </div>
+        <div>
+            <p>
+                Итого:
+            </p>
+            <p>
+                {total} pуб.
+            </p>
+        </div>
+
+    </div>
 </div>
 </div>
 
