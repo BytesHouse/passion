@@ -20,7 +20,7 @@ export const products = [
         id: 2,
         name: 'Яйца',
         description: 'Источник натурального белка и витаминов. Идеальны для приготовления разнообразных блюд: от завтрака до ужина. Питательные и вкусные, подходят для любого стиля питания.',
-        image: 'https://www.prok.ru/upload/iblock/344/1h4e1ynfnzzzk3juehycp4okta2ghsfw.jpg',
+        image: 'https://horoshiivkus.ru/wp-content/uploads/2022/06/d475d1eee1b111ec90cbcb67356fa426_a85d8de2723411ed90d3a8905425f432.png',
         price: 26.0,
         count: 1
     },
@@ -78,6 +78,14 @@ export const products = [
         description: 'Источник незаменимых омега-3 жирных кислот и белка, необходимых для здоровья сердца и мозга. Свежая и ароматная, она вдохновляет на создание разнообразных и вкусных блюд.',
         image: 'https://storage.delikateska.ru/cache/a/a/okun_d2.jpg/w480.jpg',
         price: 80,
+        count: 1
+    },
+    {
+        id: 11,
+        name: 'Coca-Cola',
+        description: 'Легендарный газированный напиток с освежающим вкусом и искристыми пузырьками. Идеально подходит для освежения в любое время дня и в любой ситуации.',
+        image: 'https://digitalcontent.api.tesco.com/v2/media/ghs/7cfb7372-260d-4809-82f9-2ba74a5f94ef/7bbfaa27-f3b6-4a15-930e-9366dff0b0f3_1675814198.jpeg?h=960&w=960',
+        price: 29.5,
         count: 1
     },
     {

@@ -77,16 +77,10 @@ const FormCart = () => {
             `;
             setIsLoading(true);
             await sendMessage(message);
-            setFormData({
-                name: '',
-                phone: '',
-                address: '',
-                cart: '',
-            });
             alert('Заказ оформлен!');
             dispatch(clearCart());
         } catch (error) {
-            console.error('Error while sending message:', error);
+            // console.error('Error while sending message:', error);
             setErrors({ ...errors, name: 'Ошибка при отправке сообщения' });
         } finally {
             setIsLoading(false);
