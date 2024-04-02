@@ -2,13 +2,14 @@ import Logo from "../Logo/Logo";
 import styles from './Footer.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faSkype, faTelegram, faViber, faVk, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
 
 const Footer = () => {
     return (
         <div className={styles.footer}>
             <div className={styles.footer}>
                 <div className={styles.flexPhone}>
-                    <Logo />
+                    <LogoMaracuya enter={undefined} />
                     <div className={styles.actionBlock}>
                         <p>000-000-000-001</p>
                         <button className={styles.button}>Заказать звонок</button>
