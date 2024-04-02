@@ -43,8 +43,8 @@ const Footer = () => {
                     {/*<FontAwesomeIcon icon={faVk} size="2x" className={styles.skypeIcon} />*/}
                     <FontAwesomeIcon icon={faTelegram} size="3x" className={styles.skypeIcon} />
                     {/*<FontAwesomeIcon icon={faFacebook} size="2x" className={styles.skypeIcon} />*/}
-                    <FontAwesomeIcon icon={faViber} size="3x" className={styles.skypeIcon} />
-                    <FontAwesomeIcon icon={faWhatsapp} size="3x" className={styles.skypeIcon} />
+                    <FontAwesomeIcon icon={faViber} size="3x" className={styles.viberIcon} />
+                    <FontAwesomeIcon icon={faWhatsapp} size="3x" className={styles.whatsAppIcon} />
                     </div>
                 </div>
                 {/* <div className={styles.button2}><button>Написать нам</button></div> */}

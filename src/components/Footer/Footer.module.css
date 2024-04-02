@@ -58,26 +58,24 @@ border: 2px solid #E3ECF5;
     font-size: 2.5em;
     background: #F3F3F7;
     border: 0;
-    border-radius: 1em;
+    border-radius: 0.5em;
     padding: 0.5em; 
     margin-top: 0.5em;
-
+border: 2px solid #F7D22D;
 }
+
 .button2{
-    
-   
-    
     border-radius: 3em;
 display: flex;
 justify-content: center;
 }
-.button2 button{
+/* .button2 button{
     background: #F3F3F7;
     border: 2px solid #E3ECF5;
     border-radius: 1em;
     font-size: 2em;
     padding: 1em 3em;
-}
+} */
 .actionBlock{
 display: flex;
 flex-direction: column;
@@ -119,6 +117,13 @@ align-items: flex-end;
 }
 .skypeIcon{
 color: #0059b3;
+}
+.viberIcon{
+    color:	#7360f2;
+}
+.whatsAppIcon{
+  
+color:  rgba(95,252,123,1);
 }
 .link {
     text-decoration: none;
