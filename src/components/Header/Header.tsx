@@ -1,4 +1,4 @@
-import Logo from "../Logo/Logo";
+import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
 import Burger from "../Burger/Burger";
 import cls from './Header.module.css';
 import {CSSTransition} from 'react-transition-group'
@@ -36,7 +36,7 @@ const Header = () => {
                         </div>
                     </div>
                 </CSSTransition>
-                <Logo/>
+                <LogoMaracuya enter={undefined} />
                 <p><span className={cls.span}>M</span>aracu<span className={cls.span}>Й</span>a</p>
                 <Burger enter={handleClick} />
             </div>

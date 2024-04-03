@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Logo from "../Logo/Logo";
+import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
 import styles from './FormCart.module.css';
 import { sendMessage } from "../../api/telegram";
 import {useDispatch, useSelector} from "react-redux";
@@ -91,7 +91,7 @@ const FormCart = () => {
 
     return (
         <div id="contacts" className={styles.wrapper}>
-            <Logo/>
+            <LogoMaracuya enter={undefined} />
             <form onSubmit={handleSubmit}>
                 <div className={styles.flexCol}>
                     <div>

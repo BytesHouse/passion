@@ -1,4 +1,3 @@
-import Logo from "../Logo/Logo";
 import styles from './Footer.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faSkype, faTelegram, faViber, faVk, faWhatsapp } from '@fortawesome/free-brands-svg-icons';

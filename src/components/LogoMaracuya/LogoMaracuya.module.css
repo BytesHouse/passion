@@ -1,3 +1,25 @@
-.logoMaracuya{
-    box-shadow: 5px 5px 5px;
+.logoMaracuyaWr{
+    position: relative;
+    /* border: 0.5em solid #F7D22D; */
+    padding: 0.5em;
+   
+}
+.logoMaracuyaBl{
+    border-radius: 3em;
+    position: absolute;
+    top: -5px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 110%;
+    width: 110%;
+    opacity: 0.6;
+    /* filter: blur(10px); */
+    /* background: #F7D22D; */
+/* background: linear-gradient(180deg, #bbbbbb 0%, #d8d5d5 100%); */
+
+}
+.logoMaracuya {
+  
+    /* filter: drop-shadow(0.5em 0.5em 1em rgba(0, 0, 0, 0.3)); */
 }
