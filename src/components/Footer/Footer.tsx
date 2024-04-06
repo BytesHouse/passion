@@ -1,7 +1,8 @@
 import styles from './Footer.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faSkype, faTelegram, faViber, faVk, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faTelegram, faViber, faVk, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
+import Privacy from '../Privacy/Privacy';
 
 const Footer = () => {
     return (
@@ -51,6 +52,7 @@ const Footer = () => {
                 <p className={styles.cop}>Created by <a className={styles.link} href="https://sterrasoft.com/" target="blanc">S-Terra-Soft</a></p>
 
             </div>
+            <Privacy />
         </div>
     );
 };
