@@ -52,7 +52,7 @@ const Footer = () => {
                 <p className={styles.cop}>Created by <a className={styles.link} href="https://sterrasoft.com/" target="blanc">S-Terra-Soft</a></p>
 
             </div>
-            <Privacy />
+            
         </div>
     );
 };
