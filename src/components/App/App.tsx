@@ -7,7 +7,7 @@ import { useClickAway } from "@uidotdev/usehooks";
 import Footer from "../Footer/Footer";
 import FormCart from "../FormCart/FormCart";
 import {useDispatch} from "react-redux";
-import {load} from "../../features/cart/cartSlice";
+import {load, removeFromCart} from "../../features/cart/cartSlice";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 
 const App = () => {
