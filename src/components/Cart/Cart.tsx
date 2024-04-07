@@ -12,18 +12,18 @@ const Cart = ({show}:CartProps) => {
     const length =
         cart.length <= 3
             ?
-            {background: 'green'}
+            {background: '#ef3a65'}
             :
             cart.length > 3 && cart.length <= 6
                 ?
                 {background: '#f7d22d', color: 'black', border: '2px solid black'}
                 :
-                {background: '#ef3a65'}
+                {background: 'green'}
     return (
         <div onClick={show} className={cls.cart}>
             <CartIcon/>
             <p style={length} className={cls.count}>{cart.length ?? 0}</p>
-            <p>{formatedPrice}p</p>
+            <p>{formatedPrice} ₽</p>
         </div>
     );
 };

@@ -11,8 +11,8 @@ const Footer = () => {
                 <div className={styles.flexPhone}>
                     <LogoMaracuya enter={undefined} />
                     <div className={styles.actionBlock}>
-                        <p>000-000-000-001</p>
-                        <button className={styles.button}>Заказать звонок</button>
+                        <a href='tel: +37368762427' className={styles.phoneNumber}>+373(68)76-24-27</a>
+                        <a href='tel: +37368762427' className={styles.button}>Позвонить</a>
                     </div>
 
                 </div>

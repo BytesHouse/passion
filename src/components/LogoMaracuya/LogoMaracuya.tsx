@@ -2,7 +2,6 @@ import cls from './LogoMaracuya.module.css';
 const LogoMaracuya = ({ enter }: { enter: any }) => {
     return (
         <div onClick={enter} className={cls.logoMaracuyaWr} >
-            <div className={cls.logoMaracuyaBl}></div>
             <div className={cls.logoMaracuya}>
                 <svg width="132" height="129" viewBox="0 0 312 309" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M229.349 159.062C258.101 194.486 260.211 246.74 257.796 244.283C248.085 234.407 220.826 204.506 197.635 176.351C176.161 150.281 147.023 120.75 165.364 126.885C174.196 120.065 195.066 125.248 229.349 159.062Z" fill="#125D60" />

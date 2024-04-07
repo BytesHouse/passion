@@ -158,7 +158,7 @@ const FormCart = () => {
                         </div>
                         {/* Выводим цену товара */}
                         <p className={styles.price}>
-                            {Number(item.price * item.count).toFixed(2)} руб
+                            {Number(item.price * item.count).toFixed(2)} ₽
                         </p>
                     </li>
                 ))}
@@ -170,19 +170,19 @@ const FormCart = () => {
                 Сумма:
             </p>
             <p>
-                {total.toFixed(2)} pуб.
+                {total.toFixed(2)} ₽
             </p>
         </div>
         <div>
             <p>Доставка:</p>
-            <p>{delivery ?? 0} руб.</p>
+            <p>{delivery ?? 0} ₽</p>
         </div>
         <div>
             <p>
                 Итого:
             </p>
             <p>
-                {(total + delivery).toFixed(2)} pуб.
+                {(total + delivery).toFixed(2)} ₽
             </p>
         </div>
 

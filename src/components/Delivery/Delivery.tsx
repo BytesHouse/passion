@@ -10,8 +10,8 @@ const Delivery = () => {
                 <h2 className={cls.title}>Оплата и доставка </h2>
                 <div className={cls.box}>
                     <img src={market} alt=""/>
-                    <h2>Заявка</h2>
-                    <p>Просим создать заявку на покупку товара согласно каталогу сайта.</p>
+                    <h2>Заказ</h2>
+                    <p>Просим создать Заказ на покупку товара согласно каталогу сайта.</p>
                 </div>
                 <div className={cls.box}>
                     <img src={laptop} alt=""/>
