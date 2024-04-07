@@ -115,7 +115,11 @@ align-items: flex-end;
 .container{
     margin: 0 5% ;
 }
-.skypeIcon{
+.flexCol{
+    display: flex;
+    flex-direction: column;
+}
+.telegramIcon{
 color: #0059b3;
 }
 .viberIcon{

@@ -38,12 +38,13 @@ const Footer = () => {
                     </div>
                 </div>
                 <div>
-                    <p className={styles.container}><strong>Остались вопросы? А мы всегда на связи:</strong></p>
+                    <div className={`${styles.container} ${styles.flexCol}`}>
+                    <p><strong>Остались вопросы? А мы всегда на связи:</strong></p>
+                   <span>Время работы с 8:00 до 22:00</span>
+                    </div>
+                     
                     <div className={styles.flexSocial}>
-                    {/*<FontAwesomeIcon icon={faSkype} size="2x" className={styles.skypeIcon} />*/}
-                    {/*<FontAwesomeIcon icon={faVk} size="2x" className={styles.skypeIcon} />*/}
-                    <FontAwesomeIcon icon={faTelegram} size="3x" className={styles.skypeIcon} />
-                    {/*<FontAwesomeIcon icon={faFacebook} size="2x" className={styles.skypeIcon} />*/}
+                    <FontAwesomeIcon icon={faTelegram} size="3x" className={styles.telegramIcon} />
                     <FontAwesomeIcon icon={faViber} size="3x" className={styles.viberIcon} />
                     <FontAwesomeIcon icon={faWhatsapp} size="3x" className={styles.whatsAppIcon} />
                     </div>
