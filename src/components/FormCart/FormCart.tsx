@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Logo from "../Logo/Logo";
+import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
 import styles from './FormCart.module.css';
 import { sendMessage } from "../../api/telegram";
 import {useDispatch, useSelector} from "react-redux";
@@ -97,11 +97,12 @@ const FormCart = () => {
         } finally {
             setIsLoading(false);
         }
+
     };
 
     return (
         <div id="contacts" className={styles.wrapper}>
-            <Logo/>
+            <LogoMaracuya enter={undefined} />
             <form onSubmit={handleSubmit}>
                 <div className={styles.flexCol}>
                     <div>
@@ -157,7 +158,7 @@ const FormCart = () => {
                         </div>
                         {/* Выводим цену товара */}
                         <p className={styles.price}>
-                            {Number(item.price * item.count).toFixed(2)} руб
+                            {Number(item.price * item.count).toFixed(2)} ₽
                         </p>
                     </li>
                 ))}
@@ -169,19 +170,19 @@ const FormCart = () => {
                 Сумма:
             </p>
             <p>
-                {total.toFixed(2)} pуб.
+                {total.toFixed(2)} ₽
             </p>
         </div>
         <div>
             <p>Доставка:</p>
-            <p>{delivery ?? 0} руб.</p>
+            <p>{delivery ?? 0} ₽</p>
         </div>
         <div>
             <p>
                 Итого:
             </p>
             <p>
-                {(total + delivery).toFixed(2)} pуб.
+                {(total + delivery).toFixed(2)} ₽
             </p>
         </div>
 

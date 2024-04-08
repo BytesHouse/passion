@@ -2,6 +2,9 @@ import cls from './CartModal.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import React from "react";
 import {decTotal, incTotal, removeFromCart} from "../../features/cart/cartSlice";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
+
 const CartModal = ({refProps, show}: {refProps: any, show: any}) => {
     const {cart, total} = useSelector((state: any) => state.cart);
     const handleClick = (e: any) => {
@@ -9,6 +12,9 @@ const CartModal = ({refProps, show}: {refProps: any, show: any}) => {
     }
     return (
             <div  className={cls.wrapper}>
+                <div className={cls.border}>
+                    <p>Корзина</p>  <FontAwesomeIcon icon={faXTwitter} />
+                </div>
                 <div ref={refProps} className={cls.modal}>
                     <div className={cls.body}>
                         {cart?.length ? cart.map((item: any) => (
@@ -20,6 +26,7 @@ const CartModal = ({refProps, show}: {refProps: any, show: any}) => {
                         <a href="#contacts" onClick={handleClick} className={cls.btn}>Оформить заказ</a>
                     </div>
                 </div>
+                
             </div>
     );
 };
