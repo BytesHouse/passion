@@ -1,6 +1,7 @@
 import cls from './Products.module.css'
 import ProductCard from "../ProductCard/ProductCard";
 import {products} from "../../config/db";
+import WomanEat from "../../assets/icons/WomanEat/WomanEat";
 const Products = () => {
     return (
         <section>
@@ -11,6 +12,7 @@ const Products = () => {
                         return <ProductCard key={product.id} product={product}/>
                     })}
                 </ul>
+                <WomanEat/>
             </div>
         </section>
     );

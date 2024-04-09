@@ -1,4 +1,5 @@
 .container {
+    position: relative;
     max-width: 1140px;
     min-width: 380px;
     margin: 0 auto;

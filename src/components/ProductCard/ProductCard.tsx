@@ -32,7 +32,7 @@ const ProductCard = ({product}: ProductCardProps) => {
                         {description}
                     </p>
                     <button disabled={Boolean(dis)} onClick={handleAddToCart} className={cls.addBtn} type='button'>
-                        {dis ? 'Добавлено' :'В корзину'}
+                        {dis ? 'Добавлено' :'Добавить'}
                     </button>
                 </div>
             </div>

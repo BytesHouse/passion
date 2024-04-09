@@ -9,6 +9,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    position: fixed;
+    width: 100vw;
+    background: white;
+    z-index: 10;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .container p {
     font-size: 100px;

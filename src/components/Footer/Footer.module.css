@@ -1,12 +1,10 @@
-.footer{margin-top: 2em;
-
+.footer{
+    margin-top: 2em;
 }
-
 .flexPhone{
     display: flex; 
     justify-content: space-between;
     margin: 1em;
-
 }
 .flexP{
     padding: 3em;
@@ -22,7 +20,6 @@
 }
 .flexInfo{
     width: 100%;
-    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -44,8 +41,7 @@
 .flexSocial div{
 gap: 0px;
 border-radius: 1em;
-
-opacity: 0px;
+    opacity: 0;
   display: flex;
   justify-content: center;  
   align-items: center;
@@ -54,17 +50,12 @@ height: 3em;
 border: 2px solid #E3ECF5;
 }
 
-/* .button2 button{
-    background: #F3F3F7;
-    border: 2px solid #E3ECF5;
-    border-radius: 1em;
-    font-size: 2em;
-    padding: 1em 3em;
-} */
 .actionBlock{
 display: flex;
 flex-direction: column;
 align-items: flex-end;
+    justify-content: space-between;
+    gap: 2em;
 }
 .phoneNumber{
     text-decoration: none;
@@ -94,18 +85,6 @@ border: 2px solid #F7D22D;
 display: flex;
 justify-content: center;
 }
-/* .flexPhone p{
-  
-    gap: 0px;
-    opacity: 0px;
-    font-family: Montserrat;
-    font-size: 3em;
-    font-weight: 700;
-    line-height: 25.6px;
-    text-align: left;
-    color: #F7D22D;
-;        
-} */
 .container {
     max-width: 1140px;
     min-width: 320px;
