@@ -1,6 +1,6 @@
 import cls from './CartModal.module.css';
 import {useDispatch, useSelector} from "react-redux";
-import React from "react";
+import React, {useState} from "react";
 import {decTotal, incTotal, removeFromCart} from "../../features/cart/cartSlice";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -32,7 +32,7 @@ const CartModal = ({refProps, show}: {refProps: any, show: any}) => {
 };
 
 const CartItem = ({item}: {item: any}) => {
-    const [count, setCount] = React.useState(item.count);
+    const [count, setCount] = useState(+item.count);
     const dispatch = useDispatch();
     const increment = () => {
         setCount(count + 1);

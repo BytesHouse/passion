@@ -6,7 +6,7 @@ const WomanEat = () => {
         <svg width="179" height="200" viewBox="0 0 79 100" fill="none" xmlns="http://www.w3.org/2000/svg"
              xmlnsXlink="http://www.w3.org/1999/xlink">
             <rect width="79" height="100" transform="matrix(-1 0 0 1 79 0)" fill="url(#pattern0_10065_6)"
-                  fill-opacity="0.3"/>
+                  fillOpacity="0.3"/>
             <defs>
                 <pattern id="pattern0_10065_6" patternContentUnits="objectBoundingBox" width="1" height="1">
                     <use xlinkHref="#image0_10065_6" transform="scale(0.00102912 0.000813008)"/>

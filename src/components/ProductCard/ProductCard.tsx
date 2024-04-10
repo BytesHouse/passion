@@ -13,7 +13,6 @@ interface ProductCardProps {
 }
 const ProductCard = ({product}: ProductCardProps) => {
     const {name, description, price, image} = product
-    console.log('product', product)
     const dispatch = useDispatch();
     const {cart} = useSelector((state: RootState) => state.cart)
     const handleAddToCart = () => {

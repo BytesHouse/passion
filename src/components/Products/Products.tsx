@@ -1,6 +1,5 @@
 import cls from './Products.module.css'
 import ProductCard from "../ProductCard/ProductCard";
-import {products} from "../../config/db";
 import WomanEat from "../../assets/icons/WomanEat/WomanEat";
 import { db } from '../../config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
