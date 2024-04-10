@@ -8,5 +8,11 @@
 .loading p {
     font-size: 3em;
     font-weight: 600;
-    color: #F7D22D;
+    color: black;
+    text-align: center;
+}
+.loading p span {
+    color: red;
+    font-size: 1.5em;
+    font-weight: 400;
 }
