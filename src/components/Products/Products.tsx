@@ -4,14 +4,19 @@ import WomanEat from "../../assets/icons/WomanEat/WomanEat";
 import { db } from '../../config/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {load} from "../../features/products/productsSlice";
 const Products = () => {
-    const [products, setProducts] = useState<any>([]);
-
+    const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
+    const products = useSelector((state: any) => state.products.products);
     useEffect(() => {
         const getUsers = async () => {
+            setLoading(false);
             const productsCollectionRef = collection(db, 'products');
             const data = await getDocs(productsCollectionRef);
-            setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))); // Сохранение данных в состояние
+            dispatch(load(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))); // Сохранение данных в состояние
+            setLoading(true)
         };
 
         getUsers();
@@ -21,11 +26,11 @@ const Products = () => {
         <section>
             <div className={cls.container}>
                 <h4 className={cls.title}>Продукты</h4>
-                <ul className={cls.list}>
+                {loading ? <ul className={cls.list}>
                     {products.map((product: any) => {
                         return <ProductCard key={product.id} product={product}/>
                     })}
-                </ul>
+                </ul> : <p className={cls.title}>Загрузка...</p>}
                 <WomanEat/>
             </div>
         </section>

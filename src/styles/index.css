@@ -29,3 +29,6 @@ main {
     gap: 50px;
     margin-top: 200px;
 }
+ul {
+    list-style: none;
+}

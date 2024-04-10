@@ -24,3 +24,19 @@
     color: #ef3a65;
     font-weight: 400;
 }
+.navi {
+    height: 75%;
+    font-size: 2.8rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+.last {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+.navi hr {
+    background-color: black;
+}

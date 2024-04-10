@@ -6,9 +6,14 @@ import {useEffect, useState} from "react";
 import './style.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXTwitter} from "@fortawesome/free-brands-svg-icons";
+import {categories} from "../../config/categories";
+import {useDispatch, useSelector} from "react-redux";
+import {setFilter} from "../../features/products/productsSlice";
 
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
+    const dispatch = useDispatch();
+    const products = useSelector((state: any) => state.products.products);
     const handleClick = () => {
         setIsEnter((prev: boolean) => !prev);
     }
@@ -19,6 +24,11 @@ const Header = () => {
             document.body.style.overflow = 'auto';
         }
     }, [isEnter])
+    const handleClickFilter = (category: number) => {
+        dispatch(setFilter(category))
+        console.log(category)
+        setIsEnter(false);
+    }
     return (
         <div className={cls.header}>
             <div className={cls.container}>
@@ -28,12 +38,13 @@ const Header = () => {
                     classNames="myclass"
                 >
                     <div className="my-paragraph">
-                        <div>
-                            <p>Каталог</p>
-                            <ul>
-
+                            <ul className={cls.navi}>
+                                {categories.map((category) => {
+                                    return <li onClick={() => handleClickFilter(category.category)} key={category.id}>{category.name}</li>
+                                })}
+                                <hr/>
+                                <li className={cls.last}>+373 (68) 76-24-27</li>
                             </ul>
-                        </div>
                         <div onClick={() => setIsEnter((v) => !v)} className="my-div">
                             <FontAwesomeIcon icon={faXTwitter} />
                         </div>
