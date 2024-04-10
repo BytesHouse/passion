@@ -28,9 +28,12 @@ const Header = () => {
                     classNames="myclass"
                 >
                     <div className="my-paragraph">
-                        — Как дела? <br/> <br/>
+                        <div>
+                            <p>Каталог</p>
+                            <ul>
 
-                        — Аааааааааааааа, я думала сова... <br/> <br/>
+                            </ul>
+                        </div>
                         <div onClick={() => setIsEnter((v) => !v)} className="my-div">
                             <FontAwesomeIcon icon={faXTwitter} />
                         </div>
