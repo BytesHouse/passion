@@ -3,12 +3,13 @@ import Main from "../Main/Main";
 import Cart from "../Cart/Cart";
 import CartModal from "../CartModal/CartModal";
 import {useEffect, useState} from "react";
-import { useClickAway } from "@uidotdev/usehooks";
+import { useClickAway, useWindowSize } from "@uidotdev/usehooks";
 import Footer from "../Footer/Footer";
 import FormCart from "../FormCart/FormCart";
 import {useDispatch} from "react-redux";
 import {load, removeFromCart} from "../../features/cart/cartSlice";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
+import Mobile from "../Mobile/Mobile";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
@@ -33,21 +34,18 @@ const App = () => {
             setLoading(false);
         }, 2000);
     }, []);
-
+    const size = useWindowSize();
     return (
         <>
             { loading ? (
             <LoadingScreen />
-                ) : (
+                ) : size.width! < 1024 ?  (
                     <>
-                    <Header/>
-                    <Main/>
-                    <Cart show={handleShowModal}/>
-                    {showModal && <CartModal show={setShowModal} refProps={ref}/>}
-                    <FormCart />
-                    <Footer />
+                    <Mobile handleShowModal={handleShowModal} showModal={showModal} setShowModal={setShowModal} refProps={ref}/>
                     </>
-            )}
+            ) :
+                <>
+                </>}
         </>
     );
 }

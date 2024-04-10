@@ -8,7 +8,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXTwitter} from "@fortawesome/free-brands-svg-icons";
 import {categories} from "../../config/categories";
 import {useDispatch, useSelector} from "react-redux";
-import {setFilter} from "../../features/products/productsSlice";
+import {reset, setFilter} from "../../features/products/productsSlice";
 
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
@@ -19,12 +19,18 @@ const Header = () => {
     useEffect(()=>{
         if(isEnter){
             document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
         }else{
             document.body.style.overflow = 'auto';
+            document.body.style.position = 'static';
         }
     }, [isEnter])
     const handleClickFilter = (category: number) => {
         dispatch(setFilter(category))
+        setIsEnter(false);
+    }
+    const handleReset = () => {
+        dispatch(reset())
         setIsEnter(false);
     }
     return (
@@ -37,6 +43,7 @@ const Header = () => {
                 >
                     <div className="my-paragraph">
                             <ul className={cls.navi}>
+                                <li onClick={handleReset}>Все продукты</li>
                                 {categories.map((category) => {
                                     return <li onClick={() => handleClickFilter(category.category)} key={category.id}>{category.name}</li>
                                 })}

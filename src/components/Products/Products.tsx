@@ -23,13 +23,13 @@ const Products = () => {
     }, []);
     return (
 
-        <section>
+        <section className={cls.products}>
             <div className={cls.container}>
                 <h4 className={cls.title}>Продукты</h4>
                 {loading ? <ul className={cls.list}>
-                    {products.map((product: any) => {
+                    {products.length ? products.map((product: any) => {
                         return <ProductCard key={product.id} product={product}/>
-                    })}
+                    }): <p className={cls.titleProd}>Продуктов нет</p>}
                 </ul> : <p className={cls.title}>Загрузка...</p>}
                 <WomanEat/>
             </div>
