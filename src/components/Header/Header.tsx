@@ -13,7 +13,6 @@ import {setFilter} from "../../features/products/productsSlice";
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
     const dispatch = useDispatch();
-    const products = useSelector((state: any) => state.products.products);
     const handleClick = () => {
         setIsEnter((prev: boolean) => !prev);
     }
@@ -26,7 +25,6 @@ const Header = () => {
     }, [isEnter])
     const handleClickFilter = (category: number) => {
         dispatch(setFilter(category))
-        console.log(category)
         setIsEnter(false);
     }
     return (

@@ -13,11 +13,13 @@ export interface Product {
 
 export interface ProductsState {
     products: Product[],
+    filtered: Product[],
     filter: number,
 }
 
 const initialState: ProductsState = {
     products: [],
+    filtered: [],
     filter: 0,
 }
 
@@ -27,10 +29,11 @@ const productsSlice = createSlice({
     reducers: {
         load: (state, action: PayloadAction<any>) => {
             state.products = action.payload
+            state.filtered = action.payload
         },
         setFilter: (state, action: PayloadAction<number>) => {
             state.filter = action.payload
-            state.products = state.products.filter((product) => product.category == action.payload)
+            state.filtered = state.products.filter((product) => product.category == action.payload)
         }
 
     }

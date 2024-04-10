@@ -9,7 +9,7 @@ import {load} from "../../features/products/productsSlice";
 const Products = () => {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
-    const products = useSelector((state: any) => state.products.products);
+    const products = useSelector((state: any) => state.products.filtered);
     useEffect(() => {
         const getUsers = async () => {
             setLoading(false);
