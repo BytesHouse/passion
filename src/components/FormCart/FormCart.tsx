@@ -90,13 +90,13 @@ const FormCart = () => {
         try {
             const id = generateUniqueId(name).toUpperCase();
             localStorage.setItem('id', id);
-            const message = `Новый заказ:\n---------------------\nid: ${id}\nИмя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nАдрес: ${address}\n---------------------\nКорзина: \n${getFormatedString(cart)}\n---------------------\nСумма: ${total} ₽\nДоставка: ${delivery} ₽\nИтого: ${totalWithDelivery} ₽`;
+            const message = `Новый заказ:\n---------------------\nid: ${id}\nИмя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nАдрес: ${address}\n---------------------\nКорзина: \n${getFormatedString(cart)}\n---------------------\nСумма: ${total.toFixed(2)} ₽\nДоставка: ${delivery} ₽\nИтого: ${totalWithDelivery.toFixed(2)} ₽`;
             setIsLoading(true);
             setFormData({
                 ...formData,
                 id,
                 message: `${getFormatedString(cart)}
-                \nСумма: ${total} ₽
+                \nСумма: ${total.toFixed(2)} ₽
                 `,
             });
             await sendMessage(message);
