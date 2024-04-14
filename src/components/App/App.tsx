@@ -26,9 +26,9 @@ const App = () => {
     };
 
     useEffect(() => {
-        // setTimeout(() => {
-        //     setLoading(false);
-        // }, 2000);
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
     }, []);
     const size = useWindowSize();
     return (
