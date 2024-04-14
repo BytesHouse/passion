@@ -1,9 +1,9 @@
 import cls from './LogoMaracuya.module.css';
-const LogoMaracuya = ({ enter }: { enter: any }) => {
+const LogoMaracuya = ({ enter, w = 132, h = 129 }: { enter?: any, w?: number, h?: number }) => {
     return (
         <div onClick={enter} className={cls.logoMaracuyaWr} >
             <div className={cls.logoMaracuya}>
-                <svg width="132" height="129" viewBox="0 0 312 309" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width={w} height={h} viewBox="0 0 312 309" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M229.349 159.062C258.101 194.486 260.211 246.74 257.796 244.283C248.085 234.407 220.826 204.506 197.635 176.351C176.161 150.281 147.023 120.75 165.364 126.885C174.196 120.065 195.066 125.248 229.349 159.062Z" fill="#125D60" />
                     <path d="M206.024 183.806C235.106 221.719 261.534 243.321 258.278 244.447C248.689 247.764 198.61 229.19 182.153 209.369C160.261 189.683 140.29 125.647 141.25 111C166.588 138.309 173.835 148.156 206.024 183.806Z" fill="#40BB9F" />
                     <path d="M103.488 134.931C71.3789 102.52 64.1188 50.7294 66.7651 52.9356C77.4035 61.8047 107.482 88.8683 133.34 114.596C157.283 138.417 189.194 164.927 170.337 160.634C162.222 168.292 140.943 165.195 103.488 134.931Z" fill="#125D60" />

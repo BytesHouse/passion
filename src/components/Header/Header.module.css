@@ -40,3 +40,10 @@
 .navi hr {
     background-color: black;
 }
+
+@media (max-height: 768px) {
+    .last {
+        grid-column: span 2;
+    }
+
+}
