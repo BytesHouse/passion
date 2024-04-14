@@ -22,7 +22,7 @@ const Header = () => {
                     </div>
                 </div>
                 <ul className="flex text-[14px] justify-between uppercase font-semibold">
-                    {categories.map(item => <li>{item.short}</li>)}
+                    {categories.map(item => <li key={item.id}>{item.short}</li>)}
                 </ul>
             </div>
         </div>

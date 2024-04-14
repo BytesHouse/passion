@@ -6,6 +6,8 @@ import {load, removeFromCart} from "../../features/cart/cartSlice";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import Mobile from "../Mobile/Mobile";
 import Desktop from "../Desktop/Desktop";
+import {collection, getDocs} from "firebase/firestore";
+import {db} from "../../config/firebase";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
@@ -30,6 +32,7 @@ const App = () => {
             setLoading(false);
         }, 2000);
     }, []);
+
     const size = useWindowSize();
     return (
         <>
