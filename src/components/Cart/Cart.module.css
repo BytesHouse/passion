@@ -5,7 +5,7 @@
     right: 20px;
     bottom: 20px;
     background-color: #F7D22D;
-    padding: 20px 50px;
+    padding: 20px 20px;
     border-radius: 8px;
     font-weight: bold;
     display: flex;
@@ -29,4 +29,12 @@
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
+}
+.totalSum {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.rubLogo {
+    max-width: 20%;
 }

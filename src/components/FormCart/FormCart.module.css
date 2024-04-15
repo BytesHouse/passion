@@ -74,6 +74,7 @@ form{
     flex: 1;
 }
 .price{
+    display: flex;
     font-size: 2em;
     font-weight: 600;
     text-align: start;
@@ -92,4 +93,13 @@ form{
     display: flex;
     justify-content: space-between;
     margin: 15px 0;
+}
+
+.totalSum{
+    display: flex;
+}
+
+.rubLogo {
+    max-width: 20%;
+    margin-top: 5px;
 }

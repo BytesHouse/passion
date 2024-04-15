@@ -1,38 +1,49 @@
-import cls from './ProductCard.module.css'
-import {useDispatch, useSelector} from "react-redux";
-import {addToCart} from "../../features/cart/cartSlice";
-import {RootState} from "../../store/store";
+import cls from "./ProductCard.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../features/cart/cartSlice";
+import { RootState } from "../../store/store";
+import rub from "../../assets/images/ruble.png";
 interface ProductCardProps {
     product: {
-        id: number,
-        name: string,
-        description: string,
-        price: number,
-        image: string
-    }
+        id: number;
+        name: string;
+        description: string;
+        price: number;
+        image: string;
+    };
 }
-const ProductCard = ({product}: ProductCardProps) => {
-    const {name, description, price, image} = product
+const ProductCard = ({ product }: ProductCardProps) => {
+    const { name, description, price, image } = product;
     const dispatch = useDispatch();
-    const {cart} = useSelector((state: RootState) => state.cart)
+    const { cart } = useSelector((state: RootState) => state.cart);
     const handleAddToCart = () => {
-        dispatch(addToCart(product))
-    }
-    const dis = cart.find((item) => item.id === product.id)
+        dispatch(addToCart(product));
+    };
+    const dis = cart.find((item) => item.id === product.id);
     return (
         <li className={cls.card}>
             <div className={cls.content}>
                 <div className={cls.image}>
-                    <img src={image} alt="product"/>
-                    <p className={cls.price}>{price} ₽</p>
+                    <img
+                        className={cls.productImage}
+                        src={image}
+                        alt="product"
+                    />
+                    <p className={cls.price}>
+                        {(Math.round(100 * price) / 100).toFixed(2)}
+                        <img className={cls.rubLogo} src={rub} alt="r" />
+                    </p>
                 </div>
                 <div className={cls.info}>
                     <p className={cls.title}>{name}</p>
-                    <p className={cls.description}>
-                        {description}
-                    </p>
-                    <button disabled={Boolean(dis)} onClick={handleAddToCart} className={cls.addBtn} type='button'>
-                        {dis ? 'Добавлено' :'Добавить'}
+                    <p className={cls.description}>{description}</p>
+                    <button
+                        disabled={Boolean(dis)}
+                        onClick={handleAddToCart}
+                        className={cls.addBtn}
+                        type="button"
+                    >
+                        {dis ? "Добавлено" : "Добавить"}
                     </button>
                 </div>
             </div>
