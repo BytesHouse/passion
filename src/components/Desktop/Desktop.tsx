@@ -8,10 +8,9 @@ const Desktop = () => {
     return (
         <div className="flex flex-col gap-[15px]">
             <Header />
-            <Slider />
-            <NewProducts />
-            {/* <ProductsList /> */}
-            <Footer />
+            <Slider/>
+            <NewProducts/>
+            <ProductsList/>
         </div>
     );
 };
