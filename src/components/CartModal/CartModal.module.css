@@ -123,6 +123,9 @@ border-radius:1em 1em 0 0;
 .total {
     font-size: 3.5em;
     font-weight: 400;
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
 }
 .total span {
     text-align: end;
@@ -142,4 +145,16 @@ border-radius:1em 1em 0 0;
     font-size: 5.5em;
     text-align: center;
     padding: 150px 0;
+}
+
+.itemPrice {
+    display: flex;
+}
+
+.totalPrice {
+    display: flex;
+}
+
+.rubLogo {
+    max-width: 50px;
 }
