@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
 import { RootState } from "../../store/store";
 import Ruble from "../../assets/icons/Ruble/Ruble";
-
 interface ProductCardProps {
     product: {
         id: number;
@@ -13,7 +12,6 @@ interface ProductCardProps {
         image: string;
     };
 }
-
 const ProductCard = ({ product }: ProductCardProps) => {
     const { name, description, price, image } = product;
     const dispatch = useDispatch();

@@ -10,6 +10,7 @@ import { generateUniqueId } from "./helpers/generateUniqueId";
 import emailjs from "@emailjs/browser";
 import Ruble from "../../assets/icons/Ruble/Ruble";
 
+
 const FormCart = () => {
     const form = useRef<any>(null);
     const dispatch = useDispatch();

@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import Ruble from "../../assets/icons/Ruble/Ruble";
 
+
 const CartModal = ({ refProps, show }: { refProps: any; show: any }) => {
     const { cart, total } = useSelector((state: any) => state.cart);
     const handleClick = (e: any) => {

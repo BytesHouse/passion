@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import CartIcon from "../../assets/icons/CartIcon/CartIcon";
 import Ruble from "../../assets/icons/Ruble/Ruble";
+import rub from "../../assets/images/ruble.png";
 
 interface CartProps {
     show: () => void;
