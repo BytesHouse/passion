@@ -33,8 +33,9 @@
 .totalSum {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
-.rubLogo {
-    max-width: 20%;
+.totalSum svg {
+    margin-top: 10px;
 }

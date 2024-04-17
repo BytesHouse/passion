@@ -149,12 +149,24 @@ border-radius:1em 1em 0 0;
 
 .itemPrice {
     display: flex;
+    align-items: center;
+}
+
+.itemPrice svg{
+    margin-top: 10px;
+}
+
+.itemPrice g{
+    fill: #F7D22D;
 }
 
 .totalPrice {
     display: flex;
+    align-items: center;
 }
 
-.rubLogo {
-    max-width: 50px;
+.totalPrice svg {
+    width: 40px;
+    height: 42px;
+    margin-top: 15px;
 }
