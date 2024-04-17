@@ -8,8 +8,8 @@ import { getFormatedString } from "./helpers/getFormatedString";
 import { clearCart } from "../../features/cart/cartSlice";
 import { generateUniqueId } from "./helpers/generateUniqueId";
 import emailjs from "@emailjs/browser";
-import rub from "../../assets/images/ruble.png";
-import rubR from "../../assets/images/rubleRed.png";
+import Ruble from "../../assets/icons/Ruble/Ruble";
+
 
 const FormCart = () => {
     const form = useRef<any>(null);
@@ -219,11 +219,7 @@ const FormCart = () => {
                                             {Number(
                                                 item.price * item.count
                                             ).toFixed(2)}{" "}
-                                            <img
-                                                className={styles.rubLogo}
-                                                src={rub}
-                                                alt="r"
-                                            />
+                                            <Ruble />
                                         </p>
                                     </li>
                                 ))}
@@ -233,34 +229,20 @@ const FormCart = () => {
                                 <div>
                                     <p>Сумма:</p>
                                     <p className={styles.totalSum}>
-                                        {total.toFixed(2)}{" "}
-                                        <img
-                                            className={styles.rubLogo}
-                                            src={rubR}
-                                            alt="r"
-                                        />
+                                        {total.toFixed(2)} <Ruble />
                                     </p>
                                 </div>
                                 <div>
                                     <p>Доставка:</p>
                                     <p className={styles.totalSum}>
-                                        {delivery.toFixed(2) ?? 0}{" "}
-                                        <img
-                                            className={styles.rubLogo}
-                                            src={rubR}
-                                            alt="r"
-                                        />
+                                        {delivery.toFixed(2) ?? 0} <Ruble />
                                     </p>
                                 </div>
                                 <div>
                                     <p>Итого:</p>
                                     <p className={styles.totalSum}>
                                         {(total + delivery).toFixed(2)}{" "}
-                                        <img
-                                            className={styles.rubLogo}
-                                            src={rubR}
-                                            alt="r"
-                                        />
+                                        <Ruble />
                                     </p>
                                 </div>
                             </div>

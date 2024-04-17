@@ -8,8 +8,8 @@ import {
 } from "../../features/cart/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
-import rub from "../../assets/images/ruble.png";
-import rubY from "../../assets/images/rubleY.png";
+import Ruble from "../../assets/icons/Ruble/Ruble";
+
 
 const CartModal = ({ refProps, show }: { refProps: any; show: any }) => {
     const { cart, total } = useSelector((state: any) => state.cart);
@@ -35,8 +35,7 @@ const CartModal = ({ refProps, show }: { refProps: any; show: any }) => {
                     <div className={cls.total}>
                         Сумма заказа:{" "}
                         <p className={cls.totalPrice}>
-                            {total.toFixed(2)}{" "}
-                            <img className={cls.rubLogo} src={rub} alt="r" />
+                            {total.toFixed(2)} <Ruble />
                         </p>
                     </div>
                     <a
@@ -90,8 +89,7 @@ const CartItem = ({ item }: { item: any }) => {
                     &times;
                 </button>
                 <p className={cls.itemPrice}>
-                    {(count * item.price).toFixed(2)}{" "}
-                    <img className={cls.rubLogo} src={rubY} alt="r" />
+                    {(count * item.price).toFixed(2)} <Ruble />
                 </p>
             </div>
         </div>

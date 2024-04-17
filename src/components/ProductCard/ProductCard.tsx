@@ -2,7 +2,7 @@ import cls from "./ProductCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
 import { RootState } from "../../store/store";
-import rub from "../../assets/images/ruble.png";
+import Ruble from "../../assets/icons/Ruble/Ruble";
 interface ProductCardProps {
     product: {
         id: number;
@@ -31,7 +31,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     />
                     <p className={cls.price}>
                         {(Math.round(100 * price) / 100).toFixed(2)}
-                        <img className={cls.rubLogo} src={rub} alt="r" />
+                        <Ruble />
                     </p>
                 </div>
                 <div className={cls.info}>

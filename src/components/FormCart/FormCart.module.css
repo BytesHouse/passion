@@ -73,11 +73,16 @@ form{
 .prodItem div {
     flex: 1;
 }
-.price{
+.price {
     display: flex;
     font-size: 2em;
     font-weight: 600;
     text-align: start;
+    align-items: center;
+}
+
+.price svg {
+    margin-top: 15px;
 }
 
 /* Total */
@@ -97,9 +102,14 @@ form{
 
 .totalSum{
     display: flex;
+    align-items: center;
 }
 
-.rubLogo {
-    max-width: 20%;
-    margin-top: 5px;
+.totalSum svg {
+    margin-top: 15px;
 }
+
+.totalSum g{
+    fill: #ef3a65;
+}
+

@@ -2,6 +2,7 @@ import cls from "./Cart.module.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import CartIcon from "../../assets/icons/CartIcon/CartIcon";
+import Ruble from "../../assets/icons/Ruble/Ruble";
 import rub from "../../assets/images/ruble.png";
 
 interface CartProps {
@@ -27,8 +28,7 @@ const Cart = ({ show }: CartProps) => {
                 {cart.length ?? 0}
             </p>
             <p className={cls.totalSum}>
-                {formatedPrice}{" "}
-                <img className={cls.rubLogo} src={rub} alt="r" />
+                {formatedPrice} <Ruble />
             </p>
         </div>
     );
