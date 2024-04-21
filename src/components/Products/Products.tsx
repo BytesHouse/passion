@@ -49,7 +49,7 @@ const Products = () => {
     );
 
     return (
-        <section>
+        <section className={cls.products}>
             <div className={cls.container}>
                 <div className={cls.searchInput}>
                     <div className={cls.icon}>
@@ -73,6 +73,7 @@ const Products = () => {
                     </ul>
                 )}
                 <WomanEat />
+
             </div>
         </section>
     );

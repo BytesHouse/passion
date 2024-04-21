@@ -6,6 +6,7 @@
     justify-content: center;
 }
 .loading p {
+    padding: 0 50px;
     font-size: 3em;
     font-weight: 600;
     color: #F7D22D;

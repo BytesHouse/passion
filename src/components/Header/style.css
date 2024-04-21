@@ -13,18 +13,22 @@
     font-size: 3.5em;
     background-color: #F7D22D;
     transition: all .5s ease;
+    opacity: 0;
 }
 /* === Enter Transition === */
 .myclass-enter {
     transform: translateY(-100%);
+    opacity: 0;
 }
 
 .myclass-enter-active {
     transform: translateY(0%);
+    opacity: 1;
 }
 
 .myclass-enter-done {
     transform: translateY(0%);
+    opacity: 1;
 }
 
 .my-div {
@@ -41,4 +45,21 @@
     position: absolute;
     top: 0.5em;
     right: 0.5em;
+}
+@media (max-height: 768px) {
+    .my-paragraph {
+        height: 768px;
+        overflow: auto;
+
+    }
+    .my-paragraph ul {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        padding: 0;
+        font-size: 16px;
+    }
+    .my-paragraph ul hr {
+        grid-column-start: 1;
+        grid-column-end: -1;
+    }
 }

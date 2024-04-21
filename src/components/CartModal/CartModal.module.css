@@ -123,6 +123,9 @@ border-radius:1em 1em 0 0;
 .total {
     font-size: 3.5em;
     font-weight: 400;
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
 }
 .total span {
     text-align: end;
@@ -143,3 +146,32 @@ border-radius:1em 1em 0 0;
     text-align: center;
     padding: 150px 0;
 }
+
+.itemPrice {
+    display: flex;
+    align-items: center;
+}
+
+.itemPrice svg{
+    margin-top: 10px;
+}
+
+.itemPrice g{
+    fill: #F7D22D;
+
+}
+.totalPrice {
+    display: flex;
+
+    align-items: center;
+}
+.totalPrice svg {
+    width: 40px;
+    height: 42px;
+    margin-top: 15px;
+}
+
+.rubLogo {
+    max-width: 50px;
+}
+

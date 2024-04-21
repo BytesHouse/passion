@@ -31,6 +31,9 @@ const productsSlice = createSlice({
             state.products = action.payload
             state.filtered = action.payload
         },
+        reset: (state) => {
+            state.filtered = state.products
+        },
         setFilter: (state, action: PayloadAction<number>) => {
             state.filter = action.payload
             state.filtered = state.products.filter((product) => product.category == action.payload)
@@ -39,5 +42,5 @@ const productsSlice = createSlice({
     }
 })
 
-export const { load,setFilter } = productsSlice.actions
+export const { load,setFilter,reset } = productsSlice.actions
 export default productsSlice.reducer
