@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import App from "./components/App/App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Error404 from "./components/Error404/Error404";
-import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy";
+import Privacy from "./components/Privacy/Privacy";
 
 const router = createBrowserRouter([
     {
@@ -14,8 +14,8 @@ const router = createBrowserRouter([
         element: <App />,
     },
     {
-        path: "/privatypolicy",
-        element: <PrivacyPolicy />,
+        path: "/privacy",
+        element: <Privacy />,
     },
     // {
     //     path: "/cart",
