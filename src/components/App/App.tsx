@@ -1,21 +1,22 @@
-
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useClickAway, useWindowSize } from "@uidotdev/usehooks";
-import {useDispatch} from "react-redux";
-import {load, removeFromCart} from "../../features/cart/cartSlice";
+import { useDispatch } from "react-redux";
+import { load, removeFromCart } from "../../features/cart/cartSlice";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import Mobile from "../Mobile/Mobile";
 import Desktop from "../Desktop/Desktop";
-import {collection, getDocs} from "firebase/firestore";
-import {db} from "../../config/firebase";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../config/firebase";
+import { useLocation } from "react-router-dom";
+import { ScrollToTop } from "../ScrollToTop/ScrollToTop";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
-    if(localStorage.getItem('cart') === null) {
-        localStorage.setItem('cart', JSON.stringify([]))
+    if (localStorage.getItem("cart") === null) {
+        localStorage.setItem("cart", JSON.stringify([]));
     } else {
-        dispatch(load(JSON.parse(localStorage.getItem('cart') ?? '[]')))
+        dispatch(load(JSON.parse(localStorage.getItem("cart") ?? "[]")));
     }
     const [showModal, setShowModal] = useState(false);
     const ref = useClickAway(() => {
@@ -36,17 +37,23 @@ const App = () => {
     const size = useWindowSize();
     return (
         <>
-            { loading ? (
-            <LoadingScreen />
-                ) : size.width! < 1024 ?  (
-                    <>
-                    <Mobile handleShowModal={handleShowModal} showModal={showModal} setShowModal={setShowModal} refProps={ref}/>
-                    </>
-            ) :
+            {loading ? (
+                <LoadingScreen />
+            ) : size.width! < 1024 ? (
                 <>
-                    <Desktop/>
-                </>}
+                    <Mobile
+                        handleShowModal={handleShowModal}
+                        showModal={showModal}
+                        setShowModal={setShowModal}
+                        refProps={ref}
+                    />
+                </>
+            ) : (
+                <>
+                    <Desktop />
+                </>
+            )}
         </>
     );
-}
+};
 export default App;
