@@ -4,11 +4,15 @@ import { db } from "../../config/firebase";
 import { collection, getDocs, QueryDocumentSnapshot } from "firebase/firestore";
 import { load } from "../../features/products/productsSlice";
 import ProductCard from "../ProductCard/ProductCard";
-import cls from './Products.module.css';
+import cls from "./Products.module.css";
 import WomanEat from "../../assets/icons/WomanEat/WomanEat";
-import { RootState } from "../../store/store";  
+import { RootState } from "../../store/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { ScrollToTop } from "../ScrollToTop/ScrollToTop";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import Cart from "../Cart/Cart";
 
 interface Product {
     id: any;
@@ -16,7 +20,7 @@ interface Product {
     description: string;
     price: number;
     image: string;
-  [key: string]: any;  
+    [key: string]: any;
 }
 
 const Products = () => {
@@ -27,12 +31,15 @@ const Products = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const productsCollectionRef = collection(db, 'products');
+            const productsCollectionRef = collection(db, "drive"); //Вместо статичного "drive" использовать пропс из компонента Markets
             const querySnapshot = await getDocs(productsCollectionRef);
-            const productsData = querySnapshot.docs.map((doc: QueryDocumentSnapshot) => ({
-                ...doc.data(),
-                id: doc.id
-            }) as Product);
+            const productsData = querySnapshot.docs.map(
+                (doc: QueryDocumentSnapshot) =>
+                    ({
+                        ...doc.data(),
+                        id: doc.id,
+                    } as Product)
+            );
             dispatch(load(productsData));
             setLoading(false);
         };
@@ -44,38 +51,49 @@ const Products = () => {
         setSearchTerm(event.target.value.toLowerCase());
     };
 
-    const filteredProducts = products.filter((product: { name: string; }) => 
+    const filteredProducts = products.filter((product: { name: string }) =>
         product.name.toLowerCase().includes(searchTerm)
     );
 
     return (
-        <section className={cls.products}>
-            <div className={cls.container}>
-                <div className={cls.searchInput}>
-                    <div className={cls.icon}>
-                <FontAwesomeIcon icon={faSearch}  />
-                    </div>
-                <input
-                    type="text"
-                    placeholder="Поиск продуктов..."
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    
-                />
-                </div>
-               
-                <h4 className={cls.title}>Продукты</h4>
-                {loading ? <p className={cls.title}>Загрузка...</p> : (
-                    <ul className={cls.list}>
-                        {filteredProducts.map((product: Product) => (
-                            <ProductCard key={product.id} product={product} />
-                        ))}
-                    </ul>
-                )}
-                <WomanEat />
+        <div>
+            <ScrollToTop />
+            <Header />
+            <section className="mt-[15em]">
+                <section>
+                    <div className={cls.container}>
+                        <div className={cls.searchInput}>
+                            <div className={cls.icon}>
+                                <FontAwesomeIcon icon={faSearch} />
+                            </div>
+                            <input
+                                type="text"
+                                placeholder="Поиск продуктов..."
+                                value={searchTerm}
+                                onChange={handleSearchChange}
+                            />
+                        </div>
 
-            </div>
-        </section>
+                        <h4 className={cls.title}>Продукты</h4>
+
+                        {loading ? (
+                            <p className={cls.title}>Загрузка...</p>
+                        ) : (
+                            <ul className={cls.list}>
+                                {filteredProducts.map((product: Product) => (
+                                    <ProductCard
+                                        key={product.id}
+                                        product={product}
+                                    />
+                                ))}
+                            </ul>
+                        )}
+                        <WomanEat />
+                    </div>
+                </section>
+            </section>
+            <Footer />
+        </div>
     );
 };
 

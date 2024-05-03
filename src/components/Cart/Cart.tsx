@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import CartIcon from "../../assets/icons/CartIcon/CartIcon";
 import Ruble from "../../assets/icons/Ruble/Ruble";
-import rub from "../../assets/images/ruble.png";
 
 interface CartProps {
     show: () => void;
 }
+
 const Cart = ({ show }: CartProps) => {
     const { cart, total } = useSelector((state: RootState) => state.cart);
     const formatedPrice = Number(total ?? 0).toFixed(2);
@@ -21,6 +21,7 @@ const Cart = ({ show }: CartProps) => {
                   border: "2px solid black",
               }
             : { background: "green" };
+
     return (
         <div onClick={show} className={cls.cart}>
             <CartIcon />

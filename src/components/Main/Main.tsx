@@ -1,14 +1,9 @@
-import Products from "../Products/Products";
-import Delivery from "../Delivery/Delivery";
-import Map from "../Map/Map";
+import Markets from "../Markets/Markets";
 
 const Main = () => {
     return (
         <main>
-            <Products/>
-            <Delivery/>
-            <Map/>
-            <p>{process.env.GOOGLE_MAP_API}</p>
+            <Markets />
         </main>
     );
 };
