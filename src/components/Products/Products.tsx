@@ -13,6 +13,7 @@ import { ScrollToTop } from "../ScrollToTop/ScrollToTop";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Cart from "../Cart/Cart";
+import { showName } from "../../features/shops/productsSlice";
 
 interface Product {
     id: any;
@@ -24,6 +25,10 @@ interface Product {
 }
 
 const Products = () => {
+    const shopName = String(localStorage.getItem("shopName"))
+        .toLowerCase()
+        .replace(/[^\w\s]|_/g, "");
+
     const [loading, setLoading] = useState<boolean>(true);
     const [searchTerm, setSearchTerm] = useState<string>("");
     const dispatch = useDispatch();
@@ -31,7 +36,7 @@ const Products = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const productsCollectionRef = collection(db, "drive"); //Вместо статичного "drive" использовать пропс из компонента Markets
+            const productsCollectionRef = collection(db, shopName);
             const querySnapshot = await getDocs(productsCollectionRef);
             const productsData = querySnapshot.docs.map(
                 (doc: QueryDocumentSnapshot) =>
@@ -45,7 +50,7 @@ const Products = () => {
         };
 
         fetchProducts();
-    }, [dispatch]);
+    }, []);
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value.toLowerCase());
@@ -54,6 +59,13 @@ const Products = () => {
     const filteredProducts = products.filter((product: { name: string }) =>
         product.name.toLowerCase().includes(searchTerm)
     );
+
+    const [showModal, setShowModal] = useState(false);
+    const handleShowModal = () => {
+        if (showModal === false) {
+            setShowModal(true);
+        }
+    };
 
     return (
         <div>
@@ -92,6 +104,7 @@ const Products = () => {
                     </div>
                 </section>
             </section>
+            <Cart show={handleShowModal} />
             <Footer />
         </div>
     );

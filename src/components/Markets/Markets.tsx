@@ -1,14 +1,15 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Delivery from "../Delivery/Delivery";
-import Map from "../Map/Map";
+import { useLocalStorage } from "@uidotdev/usehooks";
 
 const Markets = () => {
-    let mags: string[] = ["Sherif", "Drive", "Blagoda", "Miasko"];
-    const [selectShop, setSelectShop] = useState<any>("products");
+    let mags: string[] = ["Products", "Sherif", "Drive", "Blagoda", "Miasko"];
+    const [nameShop, saveNameShop] = useLocalStorage<any>(
+        "shopName",
+        "products"
+    );
 
     const handleSelectShop = (e: React.MouseEvent<HTMLElement>) => {
-        setSelectShop(e.currentTarget.textContent);
+        saveNameShop(e.currentTarget.textContent);
     };
 
     return (
@@ -28,9 +29,6 @@ const Markets = () => {
                     ))}
                 </ul>
             </section>
-            {/* <Delivery />
-            <Map />
-            <p>{process.env.GOOGLE_MAP_API}</p> */}
         </>
     );
 };

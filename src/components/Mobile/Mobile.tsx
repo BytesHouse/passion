@@ -24,8 +24,8 @@ const Mobile = ({
             <Header />
             <Main />
             <Cart show={handleShowModal} />
-            {showModal && <CartModal show={setShowModal} refProps={refProps} />}
-            <FormCart />
+            {/* {showModal && <CartModal show={setShowModal} refProps={refProps} />}
+            <FormCart /> */}
             <Footer />
         </>
     );

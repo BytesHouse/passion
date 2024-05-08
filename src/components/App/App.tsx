@@ -9,6 +9,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { useLocation } from "react-router-dom";
 import { ScrollToTop } from "../ScrollToTop/ScrollToTop";
+import Cart from "../Cart/Cart";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
@@ -53,6 +54,7 @@ const App = () => {
                     <Desktop />
                 </>
             )}
+            <Cart show={handleShowModal} />
         </>
     );
 };
