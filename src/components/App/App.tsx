@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
-import { useClickAway, useWindowSize } from "@uidotdev/usehooks";
+import { useWindowSize } from "@uidotdev/usehooks";
 import { useDispatch } from "react-redux";
-import { load, removeFromCart } from "../../features/cart/cartSlice";
+import { load } from "../../features/cart/cartSlice";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import Mobile from "../Mobile/Mobile";
 import Desktop from "../Desktop/Desktop";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../config/firebase";
-import { useLocation } from "react-router-dom";
-import { ScrollToTop } from "../ScrollToTop/ScrollToTop";
 import Cart from "../Cart/Cart";
 
 const App = () => {
@@ -19,15 +15,6 @@ const App = () => {
     } else {
         dispatch(load(JSON.parse(localStorage.getItem("cart") ?? "[]")));
     }
-    const [showModal, setShowModal] = useState(false);
-    const ref = useClickAway(() => {
-        setShowModal(false);
-    });
-    const handleShowModal = () => {
-        if (showModal === false) {
-            setShowModal(true);
-        }
-    };
 
     useEffect(() => {
         setTimeout(() => {
@@ -42,19 +29,14 @@ const App = () => {
                 <LoadingScreen />
             ) : size.width! < 1024 ? (
                 <>
-                    <Mobile
-                        handleShowModal={handleShowModal}
-                        showModal={showModal}
-                        setShowModal={setShowModal}
-                        refProps={ref}
-                    />
+                    <Mobile />
                 </>
             ) : (
                 <>
                     <Desktop />
                 </>
             )}
-            <Cart show={handleShowModal} />
+            <Cart />
         </>
     );
 };

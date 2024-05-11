@@ -13,7 +13,6 @@ import { ScrollToTop } from "../ScrollToTop/ScrollToTop";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Cart from "../Cart/Cart";
-import { showName } from "../../features/shops/productsSlice";
 
 interface Product {
     id: any;
@@ -104,7 +103,7 @@ const Products = () => {
                     </div>
                 </section>
             </section>
-            <Cart show={handleShowModal} />
+            <Cart />
             <Footer />
         </div>
     );

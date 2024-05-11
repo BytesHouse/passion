@@ -9,7 +9,7 @@ import { clearCart } from "../../features/cart/cartSlice";
 import { generateUniqueId } from "./helpers/generateUniqueId";
 import emailjs from "@emailjs/browser";
 import Ruble from "../../assets/icons/Ruble/Ruble";
-
+import Header from "../Header/Header";
 
 const FormCart = () => {
     const form = useRef<any>(null);
@@ -25,6 +25,7 @@ const FormCart = () => {
         id: "",
         message: "",
     });
+
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
     const { cart, total } = useSelector((state: RootState) => state.cart);
@@ -126,139 +127,151 @@ const FormCart = () => {
     };
 
     return (
-        <div id="contacts" className={styles.wrapper}>
-            <LogoMaracuya enter={undefined} />
-            <form ref={form} onSubmit={handleSubmit}>
-                <input
-                    id="id"
-                    name="id"
-                    type="text"
-                    hidden
-                    value={formData.id}
-                />
-                <input
-                    id="message"
-                    name="message"
-                    type="text"
-                    hidden
-                    value={formData.message}
-                />
-                <div className={styles.flexCol}>
-                    <div>
-                        <label htmlFor="name">Имя</label>
-                        <input
-                            placeholder="Пётр Николаевич"
-                            id="name"
-                            name="name"
-                            type="text"
-                            value={formData.name}
-                            onChange={handleChange}
-                        />
-                        {errors.name && (
-                            <span className={styles.error}>{errors.name}</span>
-                        )}
-                    </div>
-                    <div>
-                        <label htmlFor="phone">Телефон</label>
-                        <input
-                            placeholder="Orange, Moldcell, IDC"
-                            id="phone"
-                            name="phone"
-                            type="text"
-                            value={formData.phone}
-                            onChange={handleChange}
-                        />
-                        {errors.phone && (
-                            <span className={styles.error}>{errors.phone}</span>
-                        )}
-                    </div>
-                    <div>
-                        <label htmlFor="email">Электронный адрес</label>
-                        <input
-                            placeholder="Ваш email"
-                            id="email"
-                            name="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                        />
-                        {errors.email && (
-                            <span className={styles.error}>{errors.email}</span>
-                        )}
-                    </div>
-                    <div>
-                        <label htmlFor="address">Адрес</label>
-                        <input
-                            placeholder="ул. Ленина д. 101, кв. 4"
-                            id="address"
-                            name="address"
-                            type="text"
-                            value={formData.address}
-                            onChange={handleChange}
-                        />
-                        {errors.address && (
-                            <span className={styles.error}>
-                                {errors.address}
-                            </span>
-                        )}
-                    </div>
-                    <div>
-                        <div className={styles.cart}>Состав заказа:</div>
-                        <div className={styles.prodList}>
-                            <ul>
-                                {cart.map((item, index) => (
-                                    <li key={index} className={styles.prodItem}>
-                                        <div>
-                                            {/* В качестве ключа используем первое свойство объекта, предполагая, что оно представляет имя товара */}
-                                            <p>{item.name}</p>
-                                            {/* Для описания товара используйте соответствующее значение объекта */}
-                                            {/*<span>Короткое описание товара</span>*/}
-                                        </div>
-                                        {/* Выводим цену товара */}
-                                        <p className={styles.price}>
-                                            {Number(
-                                                item.price * item.count
-                                            ).toFixed(2)}{" "}
+        <>
+            <Header />
+            <div id="contacts" className={styles.wrapper}>
+                <LogoMaracuya enter={undefined} />
+                <form ref={form} onSubmit={handleSubmit}>
+                    <input
+                        id="id"
+                        name="id"
+                        type="text"
+                        hidden
+                        value={formData.id}
+                    />
+                    <input
+                        id="message"
+                        name="message"
+                        type="text"
+                        hidden
+                        value={formData.message}
+                    />
+                    <div className={styles.flexCol}>
+                        <div>
+                            <label htmlFor="name">Имя</label>
+                            <input
+                                placeholder="Пётр Николаевич"
+                                id="name"
+                                name="name"
+                                type="text"
+                                value={formData.name}
+                                onChange={handleChange}
+                            />
+                            {errors.name && (
+                                <span className={styles.error}>
+                                    {errors.name}
+                                </span>
+                            )}
+                        </div>
+                        <div>
+                            <label htmlFor="phone">Телефон</label>
+                            <input
+                                placeholder="Orange, Moldcell, IDC"
+                                id="phone"
+                                name="phone"
+                                type="text"
+                                value={formData.phone}
+                                onChange={handleChange}
+                            />
+                            {errors.phone && (
+                                <span className={styles.error}>
+                                    {errors.phone}
+                                </span>
+                            )}
+                        </div>
+                        <div>
+                            <label htmlFor="email">Электронный адрес</label>
+                            <input
+                                placeholder="Ваш email"
+                                id="email"
+                                name="email"
+                                type="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                            />
+                            {errors.email && (
+                                <span className={styles.error}>
+                                    {errors.email}
+                                </span>
+                            )}
+                        </div>
+                        <div>
+                            <label htmlFor="address">Адрес</label>
+                            <input
+                                placeholder="ул. Ленина д. 101, кв. 4"
+                                id="address"
+                                name="address"
+                                type="text"
+                                value={formData.address}
+                                onChange={handleChange}
+                            />
+                            {errors.address && (
+                                <span className={styles.error}>
+                                    {errors.address}
+                                </span>
+                            )}
+                        </div>
+                        <div>
+                            <div className={styles.cart}>Состав заказа:</div>
+                            <div className={styles.prodList}>
+                                <ul>
+                                    {cart.map((item, index) => (
+                                        <li
+                                            key={index}
+                                            className={styles.prodItem}
+                                        >
+                                            <div>
+                                                {/* В качестве ключа используем первое свойство объекта, предполагая, что оно представляет имя товара */}
+                                                <p>{item.name}</p>
+                                                {/* Для описания товара используйте соответствующее значение объекта */}
+                                                {/*<span>Короткое описание товара</span>*/}
+                                            </div>
+                                            {/* Выводим цену товара */}
+                                            <p className={styles.price}>
+                                                {Number(
+                                                    item.price * item.count
+                                                ).toFixed(2)}{" "}
+                                                <Ruble />
+                                            </p>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <hr />
+                                <div className={styles.total}>
+                                    <div>
+                                        <p>Сумма:</p>
+                                        <p className={styles.totalSum}>
+                                            {total.toFixed(2)} <Ruble />
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p>Доставка:</p>
+                                        <p className={styles.totalSum}>
+                                            {delivery.toFixed(2) ?? 0} <Ruble />
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p>Итого:</p>
+                                        <p className={styles.totalSum}>
+                                            {(total + delivery).toFixed(2)}{" "}
                                             <Ruble />
                                         </p>
-                                    </li>
-                                ))}
-                            </ul>
-                            <hr />
-                            <div className={styles.total}>
-                                <div>
-                                    <p>Сумма:</p>
-                                    <p className={styles.totalSum}>
-                                        {total.toFixed(2)} <Ruble />
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>Доставка:</p>
-                                    <p className={styles.totalSum}>
-                                        {delivery.toFixed(2) ?? 0} <Ruble />
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>Итого:</p>
-                                    <p className={styles.totalSum}>
-                                        {(total + delivery).toFixed(2)}{" "}
-                                        <Ruble />
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <button
-                        type="submit"
-                        className={styles.button}
-                        disabled={isLoading}
-                    >
-                        {isLoading ? "Отправка..." : "Оформить заказ"}
-                    </button>
-                </div>
-            </form>
-        </div>
+                        <button
+                            type="submit"
+                            className={styles.button}
+                            disabled={isLoading}
+                        >
+                            {isLoading ? "Отправка..." : "Оформить заказ"}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </>
     );
 };
 

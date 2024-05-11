@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Error404 from "./components/Error404/Error404";
 import Privacy from "./components/Privacy/Privacy";
 import Products from "./components/Products/Products";
+import FormCart from "./components/FormCart/FormCart";
 
 const router = createBrowserRouter(
     [
@@ -23,11 +24,10 @@ const router = createBrowserRouter(
             path: "/privacy",
             element: <Privacy />,
         },
-        // {
-        //     path: "/cart",
-        //     element: <CartNew />,
-        // },
-        // Создать отдельную страницу для корзины
+        {
+            path: "/cart",
+            element: <FormCart />,
+        },
         {
             path: "*",
             element: <Error404 />,
