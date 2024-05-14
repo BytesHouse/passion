@@ -54,7 +54,7 @@ const CartModal = ({
                                     Очистить корзину
                                 </button>
                                 <Link
-                                    to="/cart"
+                                    to="/order"
                                     className="p-[15px] bg-[#F7D22D] rounded-[20px] text-center"
                                 >
                                     Оформить заказ

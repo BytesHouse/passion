@@ -1,6 +1,6 @@
 import React from "react";
 import { categories } from "../../../../config/categories";
-import LogoMaracuya from "../../../LogoMaracuya/LogoMaracuya";
+import LogoMaracuya from "../../../../assets/icons/LogoMaracuya/LogoMaracuya";
 import { Link } from "react-router-dom";
 
 const Header = () => {

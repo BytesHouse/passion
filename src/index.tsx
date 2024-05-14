@@ -8,7 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Error404 from "./components/Error404/Error404";
 import Privacy from "./components/Privacy/Privacy";
 import Products from "./components/Products/Products";
-import FormCart from "./components/FormCart/FormCart";
+import DescktopDeliveryOrder from "./components/Descktop/DesktopDeliveryOrder/DesktopDeliveryOrder";
 
 const router = createBrowserRouter(
     [
@@ -25,8 +25,8 @@ const router = createBrowserRouter(
             element: <Privacy />,
         },
         {
-            path: "/cart",
-            element: <FormCart />,
+            path: "/order",
+            element: <DescktopDeliveryOrder />,
         },
         {
             path: "*",

@@ -1,5 +1,5 @@
-import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
-import Burger from "../Burger/Burger";
+import LogoMaracuya from "../../assets/icons/LogoMaracuya/LogoMaracuya";
+import Burger from "../../assets/icons/Burger/Burger";
 import cls from "./Header.module.css";
 import { CSSTransition } from "react-transition-group";
 import { useEffect, useState } from "react";

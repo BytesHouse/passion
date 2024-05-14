@@ -1,14 +1,16 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import CartIcon from "../../assets/icons/CartIcon/CartIcon";
 import Ruble from "../../assets/icons/Ruble/Ruble";
 import { useState } from "react";
 import CartModal from "../CartModal/CartModal";
 import { useClickAway } from "@uidotdev/usehooks";
+import { clearCart } from "../../features/cart/cartSlice";
 
 const Cart = () => {
     const { cart, total } = useSelector((state: RootState) => state.cart);
     const [cartShow, setCartShow] = useState(false);
+    const dispatch = useDispatch();
 
     const handleClickCartShow = () => setCartShow(!cartShow);
 
@@ -17,8 +19,9 @@ const Cart = () => {
     });
 
     const handleClearkCart = () => {
-        localStorage.setItem("cart", "[]");
-        handleClickCartShow();
+        // localStorage.setItem("cart", "[]");
+        // handleClickCartShow();
+        dispatch(clearCart());
     };
 
     const formatedPrice = Number(total ?? 0).toFixed(2);
