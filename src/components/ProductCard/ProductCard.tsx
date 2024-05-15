@@ -1,4 +1,3 @@
-import cls from "./ProductCard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
 import { RootState } from "../../store/store";
@@ -41,7 +40,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                         src={image}
                         alt="фотография"
                     />
-                    <p className="text-[4.5em] font-bold w-[250px]">
+                    <p className="flex justify-center items-center text-[4.5em] font-bold w-[250px]">
                         {(Math.round(100 * price) / 100).toFixed(2)}
                         <Ruble />
                     </p>

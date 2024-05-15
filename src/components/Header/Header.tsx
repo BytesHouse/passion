@@ -67,10 +67,12 @@ const Header = () => {
                 <Link to="/">
                     <LogoMaracuya enter={undefined} />
                 </Link>
-                <p>
-                    <span className={cls.span}>M</span>aracu
-                    <span className={cls.span}>Й</span>a
-                </p>
+                <Link to="/">
+                    <p>
+                        <span className={cls.span}>M</span>aracu
+                        <span className={cls.span}>Й</span>a
+                    </p>
+                </Link>
                 <Burger enter={handleClick} />
             </div>
         </div>

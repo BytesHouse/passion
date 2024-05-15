@@ -6,6 +6,10 @@ import { getFormatedString } from "./helpers/getFormatedString";
 import { sendMessage } from "../../../api/telegram";
 import { clearCart } from "../../../features/cart/cartSlice";
 import emailjs from "@emailjs/browser";
+import OrderPay from "../OrderPay/OrderPay";
+import Ruble from "../../../assets/icons/Ruble/Ruble";
+import ArrowRight from "../../../assets/icons/ArrowRight/ArrowRight";
+import ArrowLeft from "../../../assets/icons/ArrowLeft/ArrowLeft";
 
 const OrderForm = () => {
     const form = useRef<any>(null);
@@ -101,7 +105,7 @@ const OrderForm = () => {
 
     return (
         <>
-            <div className="w-[60%] border-[1px]">
+            <div className="w-[60%]">
                 <h2 className="font-[800] text-[32px] leading-[39px] text-[#F7D22D] mb-[15px]">
                     Заказ на доставку
                 </h2>
@@ -177,7 +181,7 @@ const OrderForm = () => {
                         <div className="flex justify-between">
                             <label htmlFor="address">Время доставки</label>
                             <input
-                                className="h-[120px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
+                                className="h-[48px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
                                 placeholder="Побыстрее"
                                 id="time"
                                 name="time"
@@ -187,13 +191,33 @@ const OrderForm = () => {
                             />
                         </div>
 
-                        <button
-                            type="submit"
-                            className="text-[3.5em] font-bold bg-[#f7d22d] text-white rounded-[1em] mt-[2em] p-[1em] justify-self-center mx-auto my-[5%]"
-                            disabled={isLoading}
-                        >
-                            {isLoading ? "Отправка..." : "Оформить заказ"}
-                        </button>
+                        <OrderPay />
+
+                        <div className="flex justify-between items-center">
+                            <div className="flex gap-[15px] items-center">
+                                <p>
+                                    <ArrowLeft />
+                                </p>
+                                <button>Назад в корзину</button>
+                            </div>
+                            <button
+                                type="submit"
+                                className="flex justify-center items-center h-[60px] w-[300px] bg-[#F7D22D] rounded-[8px] text-[#231F20] text-[15px] font-[800]"
+                                disabled={isLoading}
+                            >
+                                {isLoading
+                                    ? "Отправка..."
+                                    : `Оформить заказ на ${totalWithDelivery}`}
+                                {!isLoading && (
+                                    <div className="flex justify-between items-center gap-[14px]">
+                                        <p className="[&>svg]:h-[16px] [&>svg]:w-[16px] pt-[5px]">
+                                            <Ruble />
+                                        </p>
+                                        <ArrowRight />
+                                    </div>
+                                )}
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
