@@ -18,11 +18,14 @@ const CartItem = ({ item }: { item: any }) => {
         if (count > 1) {
             setCount(count - 1);
             dispatch(decTotal(item));
+        } else if (count === 1) {
+            dispatch(removeFromCart({ item, count }));
         }
     };
     const handleRemove = () => {
         dispatch(removeFromCart({ item, count }));
     };
+
     return (
         <div className="flex justify-between mb-[10px] ml-[20px] mr-[5px] gap-[25px] border-b-[1px] border-b-[gray]">
             <div className="[&>img]:w-[270px] [&>img]:h-[270px] [&>img]:border-[1px] [&>img]:border-[solid] [&>img]:border-[black] [&>img]:rounded-[50%]">

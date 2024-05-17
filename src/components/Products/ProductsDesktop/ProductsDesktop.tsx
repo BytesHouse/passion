@@ -56,7 +56,7 @@ const ProductsMobile = () => {
 
     return (
         <div>
-            <section className="mx-auto mt-[15em] min-h-[60%]">
+            <section className="mx-auto mt-[5em] min-h-[60%]">
                 <div className="flex flex-col mx-auto px-[20px] h-full w-full min-w-[380px]">
                     <div className="relative h-[20px] w-[1000px] mx-auto text-[2em] rounded-[1em] mb-[2em]">
                         <div className="absolute top-[50%] left-[2%] text-[rgb(128,128,128)]">

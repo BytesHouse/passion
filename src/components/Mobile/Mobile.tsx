@@ -8,7 +8,6 @@ const Mobile = () => {
         <>
             <Header />
             <Main />
-            <Cart />
             <Footer />
         </>
     );
