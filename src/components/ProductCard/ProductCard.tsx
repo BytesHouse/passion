@@ -71,7 +71,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             ) : (
                 <div>
                     {/* Desktop */}
-                    <li className="border-[1px] border-b-[rgba(128,128,128,0.48)] mx-auto px-[20px] w-[350px]">
+                    <li className=" border-b-[rgba(128,128,128,0.48)] shadow-[0px_4px_28px_0px_#00000014] mx-auto px-[20px] w-[300px] mb-[15px]">
                         <div className="flex flex-col justify-center items-center gap-[15px]">
                             <img
                                 className="w-[250px] h-[200px] mx-[5px] my-[15px] rounded-[20px] border-[rgba(128,128,128,0.2)]"

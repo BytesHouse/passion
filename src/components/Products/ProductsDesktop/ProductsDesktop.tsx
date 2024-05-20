@@ -79,7 +79,7 @@ const ProductsMobile = () => {
                             Загрузка...
                         </p>
                     ) : (
-                        <ul className="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 w-[80%] mx-auto list-none gap-[25px]">
+                        <ul className="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 w-[80%] mx-auto list-none gap-[20px]">
                             {filteredProducts.map((product: Product) => (
                                 <ProductCard
                                     key={product.id}
