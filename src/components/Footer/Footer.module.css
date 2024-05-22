@@ -1,0 +1,128 @@
+.footer{
+    margin-top: 2em;
+}
+.flexPhone{
+    display: flex; 
+    justify-content: space-between;
+    margin: 1em;
+}
+.flexP{
+    padding: 3em;
+    margin-top: 3em;
+    display: flex;
+    justify-content: space-between;
+}
+.grid2x2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    margin-top: 0.5em;
+}
+.flexInfo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    font-size: 2em;
+    text-align: center;
+    gap: 1em;
+}
+.flexSocial{
+    display: flex;
+    justify-content: center;
+    margin: auto auto;
+    gap: 1em;
+    font-size: 2em;
+    text-align: center;
+    gap: 1em;
+    margin:1em 2em ;
+}
+.flexSocial div{
+    gap: 0px;
+    border-radius: 1em;
+    opacity: 0;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    width: 15em;
+    height: 3em;
+    border: 2px solid #E3ECF5;
+}
+
+.actionBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.phoneNumber{
+    text-decoration: none;
+    font-family: Montserrat;
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 25.6px;
+    text-align: left;
+    color: #F7D22D;
+}
+
+.button {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    width: 80%;
+    font-size: 2.5em;
+    background: #F3F3F7;
+    border: 0;
+    border-radius: 0.5em;
+    padding: 0.5em; 
+    margin-top: 0.5em;
+    border: 2px solid #F7D22D;
+}
+
+.button2 {
+    border-radius: 3em;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1140px;
+    min-width: 320px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Onest', cursive;
+}
+
+.cop{
+    font-size: 2em;
+    text-align: center;
+    margin: 3em 0;
+}
+.container{
+    margin: 0 5% ;
+}
+.flexCol{
+    display: flex;
+    flex-direction: column;
+}
+.telegramIcon{
+color: #0059b3;
+}
+.viberIcon{
+    color:	#7360f2;
+}
+.whatsAppIcon{
+  
+color:  rgba(95,252,123,1);
+}
+.link {
+    text-decoration: none;
+}
