@@ -13,5 +13,6 @@ export const sendMessage = async (message: string):Promise<void>=>{
             text: message
         })
     })
+    
     console.log('response',respoonse)
 }
