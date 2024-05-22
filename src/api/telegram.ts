@@ -2,6 +2,7 @@ const baseUrl = "https://api.telegram.org/bot6320442593:AAH8HpWhq8nV1UCkAf1274lI
 export const sendMessage = async (message: string):Promise<void>=>{
     const url: string = `${baseUrl}/sendMessage?chat_id=-1002130844342&text=${message}`
 
+
     const respoonse = await fetch(baseUrl + '/sendMessage', {
         method: 'POST',
         headers: {

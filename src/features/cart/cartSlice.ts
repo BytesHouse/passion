@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface CartState {
+    loading: boolean,
     total: number,
     firstName: string,
     lastName: string,
@@ -19,6 +20,7 @@ type Item = {
 }
 
 const initialState: CartState = {
+    loading: false,
     total: 0,
     firstName: '',
     lastName: '',
@@ -32,14 +34,16 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         load: (state, action: PayloadAction<any>) => {
-            state.cart = action.payload
+            state.loading = true;
+            state.cart = action.payload;
             state.total = action.payload.reduce((acc: number, item: Item) => {
-                return acc + item.price * item.count
-            }, 0)
+                return acc + Number(item.price) * Number(item.count)
+            }, 0);
+            state.loading = false;
         },
         addToCart: (state, action: PayloadAction<any>) => {
             state.cart.push(action.payload)
-            state.total += action.payload.price
+            state.total += Number(action.payload.price)
             localStorage.setItem('cart', JSON.stringify(state.cart))
         },
         removeFromCart: (state, action: PayloadAction<any>) => {
@@ -54,12 +58,12 @@ const cartSlice = createSlice({
         }
         ,
         incTotal: (state, action: PayloadAction<any>) => {
-            state.total += action.payload.price
+            state.total += +action.payload.price
             state.cart = state.cart.map(item => {
                 if(item.id === action.payload.id) {
                     return {
                         ...item,
-                        count: action.payload.count + 1
+                        count: Number(action.payload.count) + 1
                     }
                 }
                 return item
@@ -68,12 +72,12 @@ const cartSlice = createSlice({
 
         },
         decTotal: (state, action: PayloadAction<any>) => {
-            state.total -= action.payload.price
+            state.total -= +action.payload.price
             state.cart = state.cart.map(item => {
                 if(item.id === action.payload.id) {
                     return {
                         ...item,
-                        count: action.payload.count - 1
+                        count: +action.payload.count - 1
                     }
                 }
                 return item

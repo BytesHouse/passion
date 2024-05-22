@@ -73,10 +73,16 @@ form{
 .prodItem div {
     flex: 1;
 }
-.price{
+.price {
+    display: flex;
     font-size: 2em;
     font-weight: 600;
     text-align: start;
+    align-items: center;
+}
+
+.price svg {
+    margin-top: 15px;
 }
 
 /* Total */
@@ -93,3 +99,17 @@ form{
     justify-content: space-between;
     margin: 15px 0;
 }
+
+.totalSum{
+    display: flex;
+    align-items: center;
+}
+
+.totalSum svg {
+    margin-top: 15px;
+}
+
+.totalSum g{
+    fill: #ef3a65;
+}
+

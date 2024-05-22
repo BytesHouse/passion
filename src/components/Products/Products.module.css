@@ -1,12 +1,15 @@
 .container {
+    position: relative;
     max-width: 1140px;
     min-width: 380px;
+    height: 100%;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     flex-direction: column;
 }
 .list {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     list-style: none;
@@ -18,4 +21,37 @@
     color: black;
     font-weight: 200;
     margin-bottom: 20px;
+}
+.searchInput{
+    position: relative;
+    height: 2em;
+    width: 100%;
+    font-size: 2em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+}
+.searchInput input{
+    height: 2em;
+    width: 100%;
+    font-size: 1em;
+    padding: 1em 1em 1em 2em;
+    border: 2px solid rgba(128, 128, 128, 0.2);
+    border-radius: 1em;
+}
+.icon{
+    position: absolute;
+    margin: 0;
+    padding:  1.6% 2% 2% 2%;
+    color: rgb(128, 128, 128);
+}
+.titleProd {
+    margin-top: 50%;
+    text-align: center;
+    font-size: 5em;
+    color: black;
+    font-weight: 200;
+}
+.products {
+    min-height: 85vh;
+
 }

@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
 * {
@@ -27,4 +30,8 @@ main {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    margin-top: 200px;
+}
+ul {
+    list-style: none;
 }

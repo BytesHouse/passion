@@ -6,19 +6,33 @@ import {useEffect, useState} from "react";
 import './style.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXTwitter} from "@fortawesome/free-brands-svg-icons";
+import {categories} from "../../config/categories";
+import {useDispatch, useSelector} from "react-redux";
+import {reset, setFilter} from "../../features/products/productsSlice";
 
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
+    const dispatch = useDispatch();
     const handleClick = () => {
         setIsEnter((prev: boolean) => !prev);
     }
     useEffect(()=>{
         if(isEnter){
             document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
         }else{
             document.body.style.overflow = 'auto';
+            document.body.style.position = 'static';
         }
     }, [isEnter])
+    const handleClickFilter = (category: number) => {
+        dispatch(setFilter(category))
+        setIsEnter(false);
+    }
+    const handleReset = () => {
+        dispatch(reset())
+        setIsEnter(false);
+    }
     return (
         <div className={cls.header}>
             <div className={cls.container}>
@@ -28,9 +42,14 @@ const Header = () => {
                     classNames="myclass"
                 >
                     <div className="my-paragraph">
-                        — Как дела? <br/> <br/>
-
-                        — Аааааааааааааа, я думала сова... <br/> <br/>
+                            <ul className={cls.navi}>
+                                <li onClick={handleReset}>Все продукты</li>
+                                {categories.map((category) => {
+                                    return <li onClick={() => handleClickFilter(category.category)} key={category.id}>{category.name}</li>
+                                })}
+                                <hr/>
+                                <li className={cls.last}>+373 (68) 76-24-27</li>
+                            </ul>
                         <div onClick={() => setIsEnter((v) => !v)} className="my-div">
                             <FontAwesomeIcon icon={faXTwitter} />
                         </div>
