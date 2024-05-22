@@ -46,6 +46,7 @@
     top: 0.5em;
     right: 0.5em;
 }
+
 @media (max-height: 768px) {
     .my-paragraph {
         height: 768px;

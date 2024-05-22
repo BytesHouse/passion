@@ -123,6 +123,7 @@ const FormCart = () => {
         } finally {
             setIsLoading(false);
         }
+
     };
 
     return (
@@ -248,7 +249,6 @@ const FormCart = () => {
                             </div>
                         </div>
                     </div>
-
                     <button
                         type="submit"
                         className={styles.button}

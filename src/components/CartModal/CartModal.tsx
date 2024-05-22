@@ -46,6 +46,7 @@ const CartModal = ({ refProps, show }: { refProps: any; show: any }) => {
                         Оформить заказ
                     </a>
                 </div>
+                
             </div>
         </div>
     );
