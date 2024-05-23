@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { generateUniqueId } from "./helpers/generateUniqueId";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
@@ -14,7 +14,7 @@ import ArrowLeft from "../../../assets/icons/ArrowLeft/ArrowLeft";
 const OrderForm = () => {
     const form = useRef<any>(null);
     const { cart, total } = useSelector((state: RootState) => state.cart);
-    const totalWithDelivery = total + 55;
+
     const [delivery, setDelivery] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -26,10 +26,32 @@ const OrderForm = () => {
         cart: "",
         id: "",
         message: "",
-        time: "",
     });
 
     const dispatch = useDispatch();
+    const totalWithDelivery = total + delivery;
+
+    useEffect(() => {
+        const tmp = cart.map((item: any) => {
+            return {
+                [item.name]: `${item.count}шт. ${Number(
+                    item.price * item.count
+                ).toFixed(2)}руб.`,
+            };
+        });
+        setFormData({ ...formData, cart: JSON.stringify(tmp) });
+        // eslint-disable-next-line
+    }, [cart]);
+
+    useEffect(() => {
+        setDelivery(
+            cart.length <= 3
+                ? 60
+                : cart.length > 3 && cart.length <= 6
+                ? 50
+                : 35
+        );
+    }, [cart]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
@@ -46,7 +68,7 @@ const OrderForm = () => {
         e.preventDefault();
 
         // eslint-disable-next-line @typescript-eslint/no-use-before-define
-        const { name, phone, email, address, time, cart } = formData;
+        const { name, phone, email, address, cart } = formData;
 
         if (!name.trim()) {
             setErrors({ ...errors, name: "Введите имя" });
@@ -95,6 +117,7 @@ const OrderForm = () => {
             );
             alert("Заказ оформлен!");
             dispatch(clearCart());
+            console.log(message);
         } catch (error) {
             // console.error('Error while sending message:', error);
             setErrors({ ...errors, name: "Ошибка при отправке сообщения" });
@@ -125,7 +148,7 @@ const OrderForm = () => {
                         hidden
                         value={formData.message}
                     />
-                    <div className="flex flex-col text gap-[15px]">
+                    <div className="relative flex flex-col text gap-[15px]">
                         <div className="flex justify-between">
                             <label htmlFor="name">Имя</label>
                             <input
@@ -137,9 +160,13 @@ const OrderForm = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                             />
-                            {errors.name && <span>{errors.name}</span>}
+                            {errors.name && (
+                                <span className="absolute right-10 top-2.5 text-[#F7D22D] text-[15px] font-[700]">
+                                    {errors.name}
+                                </span>
+                            )}
                         </div>
-                        <div className="flex justify-between">
+                        <div className="relative flex justify-between">
                             <label htmlFor="phone">Телефон</label>
                             <input
                                 className="h-[48px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
@@ -150,9 +177,13 @@ const OrderForm = () => {
                                 value={formData.phone}
                                 onChange={handleChange}
                             />
-                            {errors.phone && <span>{errors.phone}</span>}
+                            {errors.phone && (
+                                <span className="absolute right-10 top-2.5 text-[#F7D22D] text-[15px] font-[700]">
+                                    {errors.phone}
+                                </span>
+                            )}
                         </div>
-                        <div className="flex justify-between">
+                        <div className="relative flex justify-between">
                             <label htmlFor="email">Электронный адрес</label>
                             <input
                                 className="h-[48px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
@@ -163,9 +194,13 @@ const OrderForm = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                             />
-                            {errors.email && <span>{errors.email}</span>}
+                            {errors.email && (
+                                <span className="absolute right-10 top-2.5 text-[#F7D22D] text-[15px] font-[700]">
+                                    {errors.email}
+                                </span>
+                            )}
                         </div>
-                        <div className="flex justify-between">
+                        <div className="relative flex justify-between">
                             <label htmlFor="address">Адрес</label>
                             <input
                                 className="h-[120px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
@@ -176,17 +211,21 @@ const OrderForm = () => {
                                 value={formData.address}
                                 onChange={handleChange}
                             />
-                            {errors.address && <span>{errors.address}</span>}
+                            {errors.address && (
+                                <span className="absolute right-10 top-[35%] text-[#F7D22D] text-[15px] font-[700]">
+                                    {errors.address}
+                                </span>
+                            )}
                         </div>
                         <div className="flex justify-between">
-                            <label htmlFor="address">Время доставки</label>
+                            <label htmlFor="address">Комментарий</label>
                             <input
                                 className="h-[48px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
                                 placeholder="Побыстрее"
                                 id="time"
                                 name="time"
                                 type="text"
-                                value={formData.time}
+                                value=""
                                 onChange={handleChange}
                             />
                         </div>

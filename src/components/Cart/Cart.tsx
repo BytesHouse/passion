@@ -39,7 +39,7 @@ const Cart = () => {
 
     return (
         <>
-            {(cart.length || cartLocal.length) && (
+            {cart.length || cartLocal.length ? (
                 <div
                     onClick={handleClickCartShow}
                     className="fixed flex justify-between items-center gap-[10px] text-[2.5em] cursor-pointer right-[20px] bottom-[20px] bg-[#F7D22D] p-[20px] rounded-[8px] shadow-[1px_1px_1px_3px_rgba(0,0,0,0.25)]"
@@ -55,6 +55,8 @@ const Cart = () => {
                         {formatedPrice} <Ruble />
                     </p>
                 </div>
+            ) : (
+                <></>
             )}
             {cartShow && (
                 <CartModal

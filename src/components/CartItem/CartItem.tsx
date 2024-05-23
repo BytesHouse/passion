@@ -11,10 +11,12 @@ import { useWindowSize } from "@uidotdev/usehooks";
 const CartItem = ({ item }: { item: any }) => {
     const [count, setCount] = useState(+item.count);
     const dispatch = useDispatch();
+
     const increment = () => {
         setCount(count + 1);
         dispatch(incTotal(item));
     };
+
     const decrement = () => {
         if (count > 1) {
             setCount(count - 1);
@@ -23,11 +25,13 @@ const CartItem = ({ item }: { item: any }) => {
             dispatch(removeFromCart({ item, count }));
         }
     };
+
     const handleRemove = () => {
         dispatch(removeFromCart({ item, count }));
     };
 
     const size = useWindowSize();
+    console.log(item);
 
     return (
         <>

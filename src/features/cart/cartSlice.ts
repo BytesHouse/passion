@@ -35,7 +35,8 @@ const cartSlice = createSlice({
     reducers: {
         load: (state, action: PayloadAction<any>) => {
             state.loading = true;
-            state.cart = action.payload;
+            // state.cart = action.payload;
+            state.cart = JSON.parse(localStorage.getItem("cart") || action.payload)
             state.total = action.payload.reduce((acc: number, item: Item) => {
                 return acc + Number(item.price) * Number(item.count)
             }, 0);

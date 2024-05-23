@@ -8,7 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Error404 from "./components/Error404/Error404";
 import Privacy from "./components/Privacy/Privacy";
 import Products from "./components/Products/Products";
-import DescktopDeliveryOrder from "./components/Descktop/DesktopDeliveryOrder/DesktopDeliveryOrder";
+import DeliveryOrder from "./components/DeliveryOrder/DeliveryOrder";
 
 const router = createBrowserRouter(
     [
@@ -26,7 +26,7 @@ const router = createBrowserRouter(
         },
         {
             path: "/order",
-            element: <DescktopDeliveryOrder />,
+            element: <DeliveryOrder />,
         },
         {
             path: "*",

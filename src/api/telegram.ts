@@ -1,8 +1,8 @@
 
-
-const baseUrl = "https://api.telegram.org/bot6719000010:AAGF4aT0w_jai9FgurWFEpCODKlFAfbZI1g"
+const baseUrl = "https://api.telegram.org/bot6320442593:AAH8HpWhq8nV1UCkAf1274lI1w3mGrGxXKc"
 export const sendMessage = async (message: string):Promise<void>=>{
-    const url: string = `${baseUrl}/sendMessage?chat_id=-4172350740&text=${message}`
+    // eslint-disable-next-line
+    const url: string = `${baseUrl}/sendMessage?chat_id=-1002130844342&text=${message}`
 
     const respoonse = await fetch(baseUrl + '/sendMessage', {
         method: 'POST',
@@ -10,7 +10,7 @@ export const sendMessage = async (message: string):Promise<void>=>{
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            chat_id: '-4172350740',
+            chat_id: '-1002130844342',
             parse_mode: "html",
             text: message
         })

@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, incTotal } from "../../features/cart/cartSlice";
+import { addToCart, incTotal, load } from "../../features/cart/cartSlice";
 import { RootState } from "../../store/store";
 import Ruble from "../../assets/icons/Ruble/Ruble";
 import { useWindowSize } from "@uidotdev/usehooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface ProductCardProps {
     product: {
@@ -18,12 +18,21 @@ const ProductCard = ({ product }: ProductCardProps) => {
     const { id, name, description, price, image } = product;
     const dispatch = useDispatch();
     const { cart } = useSelector((state: RootState) => state.cart);
+    const cartLocal = JSON.parse(localStorage.getItem("cart") || "") || cart;
 
     const handleAddToCart = () => {
         dispatch(addToCart({ ...product, count: 1 }));
     };
 
-    const dis = cart.find((item) => item.id === product.id);
+    useEffect(() => {
+        if (localStorage.getItem("cart") === null) {
+            localStorage.setItem("cart", JSON.stringify([]));
+        } else {
+            dispatch(load(JSON.parse(localStorage.getItem("cart") || "[]")));
+        }
+    }, []);
+
+    const dis = cartLocal.find((item: any) => item.id === product.id);
 
     const countInCart = JSON.parse(localStorage.getItem("cart") || "").find(
         (item: any) => item.id === product.id

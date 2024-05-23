@@ -16,8 +16,8 @@ const CartModal = ({
     clearCart: any;
 }) => {
     const { cart, total } = useSelector((state: any) => state.cart);
-    const cartLocal = JSON.parse(localStorage.getItem("cart") || "");
-    console.log(cartLocal);
+    const cartLocal = JSON.parse(localStorage.getItem("cart") || cart);
+    const cartTotal = +(localStorage.getItem("total") || total);
 
     const size = useWindowSize();
 
@@ -102,9 +102,17 @@ const CartModal = ({
                                     <FontAwesomeIcon icon={faXTwitter} />
                                 </div>
                             </div>
-                            <div className="flex flex-col bg-white border-[4px] border-[solid] border-[#f7d22d] mx-[10px] mt-[-1px] px-[15px] rounded-b-[20px]">
+
+                            <div className="relative flex flex-col bg-white border-[4px] border-[solid] border-[#f7d22d] mx-[10px] mt-[-1px] px-[15px] rounded-b-[20px]">
+                                <>
+                                    {/* верхние закругления */}
+                                    <div className="absolute top-0 left-0 w-[15px] h-[15px] bg-[#f7d22d] z-0"></div>
+                                    <div className="absolute top-0 left-0 w-[25px] h-[25px] bg-white rounded-[20px] z-1"></div>
+                                    <div className="absolute top-0 right-0 w-[15px] h-[15px] bg-[#f7d22d] z-0"></div>
+                                    <div className="absolute top-0 right-0 w-[25px] h-[25px] bg-white rounded-[20px] z-1"></div>
+                                </>
                                 <div className="max-h-[600px] w-full overflow-auto py-[10px] overflow-x-hidden">
-                                    {cart.length || cartLocal.length ? (
+                                    {cartLocal.length ? (
                                         cartLocal.map((item: any) => (
                                             <CartItem
                                                 key={item.id}
@@ -118,19 +126,19 @@ const CartModal = ({
                                     )}
                                 </div>
                                 <div className="flex flex-col items-end gap-[25px]">
-                                    {cart?.length ? (
+                                    {cartLocal.length ? (
                                         <div className="flex justify-between items-center mt-[10px] px-[2vw] text-[18px] font-[600] w-full gap-12">
                                             <p className="text-end">
                                                 Сумма заказа:
                                             </p>
                                             <p className="flex items-center text-[24px] font-[800] [&>svg]:w-[20px] [&>svg]:h-[22px] [&>svg]:mt-[8px] [&>svg]:fill-[#F7D22D] text-[#F7D22D] ">
-                                                {total.toFixed(2)} <Ruble />
+                                                {cartTotal.toFixed(2)} <Ruble />
                                             </p>
                                         </div>
                                     ) : (
                                         <></>
                                     )}
-                                    {cart?.length ? (
+                                    {cartLocal.length ? (
                                         <div className="flex justify-end my-[20px] gap-[1vw] font-[600] text-[15px]">
                                             <button
                                                 onClick={clearCart}

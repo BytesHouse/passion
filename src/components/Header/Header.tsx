@@ -98,8 +98,9 @@ const Header = () => {
             ) : (
                 <>
                     {/* Desktop */}
-                    <div className="wrapper flex flex-col">
-                        <div className="container mx-auto px-[20px]">
+                    <div className="container mx-auto min-h-[150px] z-50">
+                        <div className="w-full fixed h-[120px] bg-white left-0"></div>
+                        <div className="container fixed bg-white">
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-[50px]">
                                     <Link to="/">
