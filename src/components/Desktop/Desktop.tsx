@@ -1,6 +1,7 @@
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import NewProducts from "./components/NewProducts/NewProducts";
+import ProductsList from "./components/ProductsList/ProductsList";
 import Slider from "./components/Slider/Slider";
 
 const Desktop = () => {
@@ -9,6 +10,7 @@ const Desktop = () => {
             <Header />
             <Slider />
             <NewProducts />
+            {/* <ProductsList /> */}
             <Footer />
         </div>
     );
