@@ -41,7 +41,7 @@ const ProductsList = () => {
         getProducts();
     }, []);
     const findItem = (id: number) => {
-        return categories.find((item: any) => item.category == id)?.name!;
+        return categories.find((item: any) => item.category === id)?.name!;
     };
 
     return (

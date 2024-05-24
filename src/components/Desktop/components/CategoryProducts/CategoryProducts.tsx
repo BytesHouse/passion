@@ -1,4 +1,3 @@
-import React from "react";
 import ProductCardDesktop from "../ProductCardDesktop/ProductCardDesktop";
 
 interface CategoryProductsProps {

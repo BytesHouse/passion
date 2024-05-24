@@ -28,10 +28,10 @@ const CartItem = ({ item }: { item: any }) => {
 
     const handleRemove = () => {
         dispatch(removeFromCart({ item, count }));
+        console.log({ item, count });
     };
 
     const size = useWindowSize();
-    console.log(item);
 
     return (
         <>
