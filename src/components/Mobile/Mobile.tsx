@@ -5,6 +5,7 @@ import Cart from "../Cart/Cart";
 import CartModal from "../CartModal/CartModal";
 import FormCart from "../FormCart/FormCart";
 import Footer from "../Footer/Footer";
+import AddressComponent from "../AddressComponent/AddressComponent";
 
 interface MobileProps {
     handleShowModal: () => void;
@@ -14,6 +15,7 @@ interface MobileProps {
 }
 
 const Mobile = ({handleShowModal, showModal, setShowModal, refProps}: MobileProps) => {
+    // const address = localStorage.getItem("address")
     return (
         <>
             <Header/>

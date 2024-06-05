@@ -2,20 +2,20 @@ import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
 import Burger from "../Burger/Burger";
 import cls from './Header.module.css';
 import {CSSTransition} from 'react-transition-group'
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import './style.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faXTwitter} from "@fortawesome/free-brands-svg-icons";
 import {categories} from "../../config/categories";
 import {useDispatch, useSelector} from "react-redux";
 import {reset, setFilter} from "../../features/products/productsSlice";
+import AddressComponent from "../AddressComponent/AddressComponent";
 
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
+    const [isShowAddress, setIsShowAddress] = useState(false);
     const dispatch = useDispatch();
-    const handleClick = () => {
-        setIsEnter((prev: boolean) => !prev);
-    }
+
     useEffect(()=>{
         if(isEnter){
             document.body.style.overflow = 'hidden';
@@ -25,6 +25,14 @@ const Header = () => {
             document.body.style.position = 'static';
         }
     }, [isEnter])
+
+    const handleClickLogo = () => {
+        setIsShowAddress(!isShowAddress);
+    }
+
+    const handleClick = () => {
+        setIsEnter((prev: boolean) => !prev);
+    }
     const handleClickFilter = (category: number) => {
         dispatch(setFilter(category))
         setIsEnter(false);
@@ -35,6 +43,7 @@ const Header = () => {
     }
     return (
         <div className={cls.header}>
+            {isShowAddress && <AddressComponent handler={handleClickLogo}/>}
             <div className={cls.container}>
                 <CSSTransition
                     in={isEnter}
@@ -55,7 +64,7 @@ const Header = () => {
                         </div>
                     </div>
                 </CSSTransition>
-                <LogoMaracuya enter={undefined} />
+                <button onClick={handleClickLogo}><LogoMaracuya enter={undefined} /></button>
                 <p><span className={cls.span}>M</span>aracu<span className={cls.span}>Й</span>a</p>
                 <Burger enter={handleClick} />
             </div>
