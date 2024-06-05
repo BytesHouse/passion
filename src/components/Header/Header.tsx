@@ -105,7 +105,6 @@ const Header = () => {
                 </>
             ) : (
                 <>
-                    {/* Desktop */}
                     <div className="container mx-auto min-h-[150px] z-50">
                         <div className="w-full fixed h-[120px] bg-white left-0"></div>
                         <div className="container fixed bg-white">
@@ -162,13 +161,12 @@ const Header = () => {
                             </ul>
                         </div>
                     </div>
-                </CSSTransition>
-                <button onClick={handleClickLogo}><LogoMaracuya enter={undefined} /></button>
-                <p><span className={cls.span}>M</span>aracu<span className={cls.span}>Й</span>a</p>
-                <Burger enter={handleClick} />
-            </div>
-        </div>
-    );
+                    <button onClick={handleClickLogo}><LogoMaracuya enter={undefined} /></button>
+                    <p><span className={cls.span}>M</span>aracu<span className={cls.span}>Й</span>a</p>
+                    <Burger enter={handleClick} />
+                </>
+                )}</>
+                )
 };
 
 export default Header;

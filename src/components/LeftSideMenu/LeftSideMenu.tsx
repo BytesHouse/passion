@@ -1,5 +1,5 @@
-import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
 import {FormEvent, useState} from "react";
+import LogoMaracuya from "../../assets/icons/LogoMaracuya/LogoMaracuya";
 import FormSignIn from "../FormSignIn/FormSignIn";
 
 const LeftSideMenu = ({isShow,handleClickBack }: {isShow: any, handleClickBack: any}) => {

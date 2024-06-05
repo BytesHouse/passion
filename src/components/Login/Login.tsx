@@ -1,7 +1,7 @@
 import {FormEvent, useContext, useState} from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
+import LogoMaracuya from "../../assets/icons/LogoMaracuya/LogoMaracuya";
 
 const Login = () => {
     const [email, setEmail] = useState("");

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import useSignUpForm from "../FormSignUp/hooks/useSignUpForm";
 import {db} from "../../config/firebase";
 import {setDoc, doc} from "firebase/firestore";
-import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
+import LogoMaracuya from "../../assets/icons/LogoMaracuya/LogoMaracuya";
 
 const SignUp = () => {
     const { createUser, user, loading } = useContext(AuthContext);

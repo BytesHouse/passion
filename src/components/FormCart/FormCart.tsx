@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
 import styles from "./FormCart.module.css";
 import { sendMessage } from "../../api/telegram";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { getFormatedString } from "./helpers/getFormatedString";
 import { clearCart } from "../../features/cart/cartSlice";
-import { generateUniqueId } from "./helpers/generateUniqueId";
 import emailjs from "@emailjs/browser";
 import Ruble from "../../assets/icons/Ruble/Ruble";
+import {generateUniqueId} from "../DeliveryOrder/OrderForm/helpers/generateUniqueId";
+import {getFormatedString} from "../DeliveryOrder/OrderForm/helpers/getFormatedString";
+import LogoMaracuya from "../../assets/icons/LogoMaracuya/LogoMaracuya";
 
 
 const FormCart = () => {
