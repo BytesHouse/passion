@@ -1,16 +1,15 @@
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { ScrollToTop } from "../ScrollToTop/ScrollToTop";
+import cls from "./Privacy.module.css";
 
 const Privacy = () => {
     return (
         <>
             <ScrollToTop />
             <Header />
-            <div className="p-[2em]">
-                <h1 className="text-[2em] mb-[2em] mt-[6em]">
-                    Политика конфиденциальности
-                </h1>
+            <div className={cls.privacy}>
+                <h1>Политика конфиденциальности</h1>
                 <strong>1. ОБЩИЕ ПОЛОЖЕНИЯ</strong>
                 <br />
                 · 1.1. Использование Пользователем сайта означает согласие с
