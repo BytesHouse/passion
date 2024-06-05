@@ -6,6 +6,7 @@ import {
     faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import LogoMaracuya from "../../assets/icons/LogoMaracuya/LogoMaracuya";
+
 import { Link } from "react-router-dom";
 
 const Footer = () => {

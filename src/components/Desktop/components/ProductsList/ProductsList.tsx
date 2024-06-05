@@ -10,6 +10,7 @@ function groupByCategory(items: any) {
     // Объект для хранения групп по категориям
     const categories = {} as any;
 
+
     // Проходим по каждому элементу массива
     items.forEach((item: any) => {
         // Проверяем, существует ли уже массив для этой категории
@@ -35,6 +36,7 @@ const ProductsList = () => {
                 ...doc.data(),
                 id: doc.id,
             }));
+
             const groupedData = groupByCategory(data);
             dispatch(load(groupedData));
         };
@@ -58,8 +60,10 @@ const ProductsList = () => {
             ) : (
                 <p className="">Загрузка...</p>
             )}
+
         </ul>
     );
 };
 
 export default ProductsList;
+

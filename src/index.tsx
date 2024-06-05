@@ -9,6 +9,7 @@ import Error404 from "./components/Error404/Error404";
 import Privacy from "./components/Privacy/Privacy";
 import Products from "./components/Products/Products";
 import DeliveryOrder from "./components/DeliveryOrder/DeliveryOrder";
+
 import Profile from "./components/Profile/Profile";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SIgnUp/SignUp";
@@ -57,6 +58,7 @@ const router = createBrowserRouter(
     ],
     { basename: "/" }
 );
+
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement

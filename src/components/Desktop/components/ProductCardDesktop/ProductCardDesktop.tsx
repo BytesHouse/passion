@@ -3,3 +3,4 @@ const ProductCardDesktop = ({ product }: any) => {
 };
 
 export default ProductCardDesktop;
+

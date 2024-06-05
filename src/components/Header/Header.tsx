@@ -12,6 +12,7 @@ import { reset, setFilter } from "../../features/products/productsSlice";
 import { Link } from "react-router-dom";
 import { useWindowSize } from "@uidotdev/usehooks";
 
+
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
     const [isShowAddress, setIsShowAddress] = useState(false);
@@ -157,12 +158,16 @@ const Header = () => {
                                 {categories.map((item) => (
                                     <li key={item.id}>{item.short}</li>
                                 ))}
+
                             </ul>
                         </div>
                     </div>
-                </>
-            )}
-        </>
+                </CSSTransition>
+                <button onClick={handleClickLogo}><LogoMaracuya enter={undefined} /></button>
+                <p><span className={cls.span}>M</span>aracu<span className={cls.span}>Й</span>a</p>
+                <Burger enter={handleClick} />
+            </div>
+        </div>
     );
 };
 

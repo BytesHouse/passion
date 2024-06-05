@@ -29,6 +29,7 @@ const NewProducts = () => {
                 load(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
             ); // Сохранение данных в состояние
             setLoading(false);
+
         };
 
         getProducts();
@@ -63,6 +64,7 @@ const NewProducts = () => {
                 ) : (
                     <p>Загрузка...</p>
                 )}
+
             </ul>
         </div>
     );
