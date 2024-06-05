@@ -102,8 +102,6 @@ const CartModal = ({
                                     <FontAwesomeIcon icon={faXTwitter} />
                                 </div>
                             </div>
-
-
                             <div className="relative flex flex-col bg-white border-[4px] border-[solid] border-[#f7d22d] mx-[10px] mt-[-1px] px-[15px] rounded-b-[20px]">
                                 <>
                                     {/* верхние закругления */}

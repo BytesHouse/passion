@@ -35,6 +35,7 @@ const Products = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
+            // тут должен быть конект с базой данных и затем фильтрация по имени магазина
             const productsCollectionRef = collection(db, shopName);
             const querySnapshot = await getDocs(productsCollectionRef);
             const productsData = querySnapshot.docs.map(
