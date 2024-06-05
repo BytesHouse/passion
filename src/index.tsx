@@ -7,6 +7,12 @@ import App from "./components/App/App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Error404 from "./components/Error404/Error404";
 import Privacy from "./components/Privacy/Privacy";
+import Profile from "./components/Profile/Profile";
+import Login from "./components/Login/Login";
+import SignUp from "./components/SIgnUp/SignUp";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import AuthProvider from "./components/AuthProvider/AuthProvider";
+import {ErrorBoundary} from "./components/ErrorBoundary/ErrorBoundary";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +22,22 @@ const router = createBrowserRouter([
     {
         path: "/privacy",
         element: <Privacy />,
+    },
+    {
+        path: "/login",
+        element: <Login />,
+    },
+    {
+        path: "/sign-up",
+        element: <SignUp />,
+    },
+    {
+        path: "/profile",
+        element: (
+            <PrivateRoute>
+                <Profile />
+            </PrivateRoute>
+        ),
     },
     // {
     //     path: "/cart",
@@ -34,8 +56,12 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <RouterProvider router={router} />
-        </Provider>
+        <ErrorBoundary>
+            <Provider store={store}>
+                <AuthProvider>
+                    <RouterProvider router={router} />
+                </AuthProvider>
+            </Provider>
+        </ErrorBoundary>
     </React.StrictMode>
 );
