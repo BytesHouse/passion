@@ -6,6 +6,7 @@ interface CategoryProductsProps {
     products: any;
     loading: boolean;
 }
+
 const CategoryProducts = ({title, products, loading}: CategoryProductsProps) => {
     return (
         <li className="container mx-auto px-[20px]">

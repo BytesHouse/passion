@@ -1,4 +1,3 @@
-import styles from "./Footer.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faTelegram,
@@ -6,7 +5,8 @@ import {
     // faVk,
     faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
-import LogoMaracuya from "../LogoMaracuya/LogoMaracuya";
+import LogoMaracuya from "../../assets/icons/LogoMaracuya/LogoMaracuya";
+
 import { Link } from "react-router-dom";
 
 const Footer = () => {

@@ -35,26 +35,31 @@ const cartSlice = createSlice({
     reducers: {
         load: (state, action: PayloadAction<any>) => {
             state.loading = true;
-            state.cart = action.payload;
+            // state.cart = action.payload;
+            state.cart = JSON.parse(localStorage.getItem("cart") || action.payload)
             state.total = action.payload.reduce((acc: number, item: Item) => {
                 return acc + Number(item.price) * Number(item.count)
             }, 0);
             state.loading = false;
+            localStorage.setItem('total', JSON.stringify(state.total))
         },
         addToCart: (state, action: PayloadAction<any>) => {
             state.cart.push(action.payload)
             state.total += Number(action.payload.price)
             localStorage.setItem('cart', JSON.stringify(state.cart))
+            localStorage.setItem('total', JSON.stringify(state.total))
         },
         removeFromCart: (state, action: PayloadAction<any>) => {
             state.cart = state.cart.filter(item => item.id !== action.payload.item.id)
             state.total -= +action.payload.item.price * +action.payload.count
             localStorage.setItem('cart', JSON.stringify(state.cart))
+            localStorage.setItem('total', JSON.stringify(state.total))
         },
         clearCart: (state) => {
             state.cart = []
             state.total = 0
             localStorage.setItem('cart', JSON.stringify(state.cart))
+            localStorage.setItem('total', JSON.stringify(state.total))
         }
         ,
         incTotal: (state, action: PayloadAction<any>) => {
@@ -69,6 +74,7 @@ const cartSlice = createSlice({
                 return item
             })
             localStorage.setItem('cart', JSON.stringify(state.cart))
+            localStorage.setItem('total', JSON.stringify(state.total))
 
         },
         decTotal: (state, action: PayloadAction<any>) => {
@@ -83,6 +89,7 @@ const cartSlice = createSlice({
                 return item
             })
             localStorage.setItem('cart', JSON.stringify(state.cart))
+            localStorage.setItem('total', JSON.stringify(state.total))
         },
     }
 });

@@ -9,10 +9,10 @@ const Ruble = () => {
             height="21.000000pt"
             viewBox="0 0 112.000000 120.000000"
             preserveAspectRatio="xMidYMid meet"
+            fill="#000000"
         >
             <g
                 transform="translate(0.000000,120.000000) scale(0.100000,-0.100000)"
-                fill="#000000"
                 stroke="none"
             >
                 <path

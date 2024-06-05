@@ -7,6 +7,9 @@ import App from "./components/App/App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Error404 from "./components/Error404/Error404";
 import Privacy from "./components/Privacy/Privacy";
+import Products from "./components/Products/Products";
+import DeliveryOrder from "./components/DeliveryOrder/DeliveryOrder";
+
 import Profile from "./components/Profile/Profile";
 import Login from "./components/Login/Login";
 import SignUp from "./components/SIgnUp/SignUp";
@@ -14,41 +17,48 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import {ErrorBoundary} from "./components/ErrorBoundary/ErrorBoundary";
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-    },
-    {
-        path: "/privacy",
-        element: <Privacy />,
-    },
-    {
-        path: "/login",
-        element: <Login />,
-    },
-    {
-        path: "/sign-up",
-        element: <SignUp />,
-    },
-    {
-        path: "/profile",
-        element: (
-            <PrivateRoute>
-                <Profile />
-            </PrivateRoute>
-        ),
-    },
-    // {
-    //     path: "/cart",
-    //     element: <CartNew />,
-    // },
-    // Создать отдельную страницу для корзины
-    {
-        path: "*",
-        element: <Error404 />,
-    },
-]);
+const router = createBrowserRouter(
+    [
+        {
+            path: "/",
+            element: <App />,
+        },
+        {
+            path: "/products/:name",
+            element: <Products />,
+        },
+        {
+            path: "/privacy",
+            element: <Privacy />,
+        },
+        {
+            path: "/order",
+            element: <DeliveryOrder />,
+        },
+        {
+            path: "/sign-up",
+            element: <SignUp />,
+        },
+        {
+            path: "/profile",
+            element: (
+                <PrivateRoute>
+                    <Profile />
+                </PrivateRoute>
+            ),
+        },
+        {
+            path: "/login",
+            element: <Login />,
+        },
+        {
+            path: "*",
+            element: <Error404 />,
+        },
+    ],
+    { basename: "/" }
+);
+
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
