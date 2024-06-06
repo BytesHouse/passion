@@ -46,7 +46,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
     const increment = () => {
         dispatch(incTotal(dis));
-        console.log(dis.id);
     };
 
     const decrement = () => {
