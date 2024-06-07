@@ -1,6 +1,6 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { Link } from "react-router-dom";
-import {shops, ShopsType} from "../../config/shops";
+import { shops, ShopsType } from "../../config/shops";
 
 const Main = () => {
     // let mags: string[] = ["Products", "Sherif", "Drive", "Blagoda", "Miasko"];
@@ -24,8 +24,15 @@ const Main = () => {
                             onClick={() => handleSelectShop(e.shopName)}
                             to={`/products/${e.shopName}`}
                         >
-                            <img width={150} height={150} src={e.image} alt={e.name}/>
-                            <span className="text-[1em] font-semibold uppercase truncate">{e.name}</span>
+                            <img
+                                width={150}
+                                height={150}
+                                src={e.image}
+                                alt={e.name}
+                            />
+                            <span className="text-[1em] font-semibold uppercase truncate">
+                                {e.name}
+                            </span>
                         </Link>
                     ))}
                 </ul>

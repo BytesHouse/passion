@@ -38,36 +38,36 @@ const CartItem = ({ item }: { item: any }) => {
             {size.width! < 1024 ? (
                 <>
                     {/* Mobile  */}
-                    <div className="flex justify-between mb-[10px] ml-[20px] mr-[5px] gap-[25px] border-b-[1px] border-b-[gray]">
-                        <div className="[&>img]:w-[270px] [&>img]:h-[270px] [&>img]:border-[1px] [&>img]:border-[solid] [&>img]:border-[black] [&>img]:rounded-[50%]">
+                    <div className="flex mb-[10px] mx-[20px] h-[200px] gap-[25px] border-b-[1px] border-b-[gray]">
+                        <div className="flex items-center w-[200px] [&>img]:w-[150px] [&>img]:h-[150px] [&>img]:rounded-[50%]">
                             <img src={item.image} alt="" />
                         </div>
-                        <div className="flex-1">
+                        <div className="flex flex-col justify-between my-[15px] w-[400px]">
                             <p>{item.name}</p>
-                            <div className="flex justify-between max-w-[320px] bg-[#F3F3F7] rounded-[8px] h-[1.1em]">
+                            <div className="flex justify-between items-center w-[200px] bg-[#F3F3F7] rounded-[8px]">
                                 <button
                                     onClick={decrement}
-                                    className="text-[3.5em] text-[black] bg-[#F7D22D] py-[50px] px-[20px] rounded-[8px]"
+                                    className="text-[20px] text-[black] bg-[#F7D22D] py-[10px] px-[20px] rounded-[8px]"
                                 >
                                     -
                                 </button>
                                 <span>{count}</span>
                                 <button
                                     onClick={increment}
-                                    className="text-[3.5em] text-[black] bg-[#F7D22D] py-[50px] px-[20px] rounded-[8px]"
+                                    className="text-[20px] text-[black] bg-[#F7D22D] py-[10px] px-[20px] rounded-[8px]"
                                 >
                                     +
                                 </button>
                             </div>
                         </div>
-                        <div className="flex flex-col justify-between">
+                        <div className="flex flex-col justify-between items-center max-w-[100px] min-w-[80px]">
                             <button
                                 onClick={handleRemove}
-                                className="text-[3.5em] text-[black] bg-[#F7D22D] py-[50px] px-[20px] rounded-[8px]"
+                                className="flex items-center justify-center text-[48px] text-[black] bg-[#F7D22D] m-[15px] w-[50px] h-[50px] rounded-[8px]"
                             >
                                 &times;
                             </button>
-                            <p className="flex items-center [&>svg]:mt-[10px]">
+                            <p className="flex items-center text-[20px] font-[600] mb-[20px] [&>svg]:w-[15px] [&>svg]:h-[15px] [&>svg]:mt-[5px]">
                                 {(count * item.price).toFixed(2)} <Ruble />
                             </p>
                         </div>
