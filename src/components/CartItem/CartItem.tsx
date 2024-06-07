@@ -39,22 +39,27 @@ const CartItem = ({ item }: { item: any }) => {
                 <>
                     {/* Mobile  */}
                     <div className="flex mb-[10px] mx-[20px] h-[200px] gap-[25px] border-b-[1px] border-b-[gray]">
-                        <div className="flex items-center w-[200px] [&>img]:w-[150px] [&>img]:h-[150px] [&>img]:rounded-[50%]">
+                        <div className="flex justify-center items-center w-[200px] [&>img]:w-[150px] [&>img]:h-[150px] [&>img]:rounded-[50px]">
                             <img src={item.image} alt="" />
                         </div>
-                        <div className="flex flex-col justify-between my-[15px] w-[400px]">
-                            <p>{item.name}</p>
+                        <div className="flex flex-col justify-between my-[15px] w-[400px] text-[24px]">
+                            <p
+                                className="overflow-hidden h-[100px]"
+                                title={item.name}
+                            >
+                                {item.name}
+                            </p>
                             <div className="flex justify-between items-center w-[200px] bg-[#F3F3F7] rounded-[8px]">
                                 <button
                                     onClick={decrement}
-                                    className="text-[20px] text-[black] bg-[#F7D22D] py-[10px] px-[20px] rounded-[8px]"
+                                    className="text-[24px] text-[black] bg-[#F7D22D] py-[10px] px-[20px] rounded-[8px]"
                                 >
                                     -
                                 </button>
                                 <span>{count}</span>
                                 <button
                                     onClick={increment}
-                                    className="text-[20px] text-[black] bg-[#F7D22D] py-[10px] px-[20px] rounded-[8px]"
+                                    className="text-[24px] text-[black] bg-[#F7D22D] py-[10px] px-[20px] rounded-[8px]"
                                 >
                                     +
                                 </button>
