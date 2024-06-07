@@ -7,7 +7,6 @@ import Mobile from "../Mobile/Mobile";
 import Desktop from "../Desktop/Desktop";
 import Cart from "../Cart/Cart";
 
-
 const App = () => {
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
@@ -60,6 +59,7 @@ const App = () => {
                     <Desktop />
                 </>
             )}
+            <Cart />
         </>
     );
 };

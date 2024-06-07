@@ -10,7 +10,7 @@ const Desktop = () => {
             <Header />
             <Slider />
             <NewProducts />
-            <ProductsList/>
+            {/* <ProductsList /> */}
             <Footer />
         </div>
     );

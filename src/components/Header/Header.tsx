@@ -12,29 +12,21 @@ import { reset, setFilter } from "../../features/products/productsSlice";
 import { Link } from "react-router-dom";
 import { useWindowSize } from "@uidotdev/usehooks";
 
-
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
-    const [isShowAddress, setIsShowAddress] = useState(false);
     const dispatch = useDispatch();
-
-    useEffect(()=>{
-        if(isEnter){
-            document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed';
-        }else{
-            document.body.style.overflow = 'auto';
-            document.body.style.position = 'static';
-        }
-    }, [isEnter])
-
-    const handleClickLogo = () => {
-        setIsShowAddress(!isShowAddress);
-    }
-
     const handleClick = () => {
         setIsEnter((prev: boolean) => !prev);
-    }
+    };
+    useEffect(() => {
+        if (isEnter) {
+            document.body.style.overflow = "hidden";
+            document.body.style.position = "fixed";
+        } else {
+            document.body.style.overflow = "auto";
+            document.body.style.position = "static";
+        }
+    }, [isEnter]);
     const handleClickFilter = (category: number) => {
         dispatch(setFilter(category));
         setIsEnter(false);
@@ -105,6 +97,7 @@ const Header = () => {
                 </>
             ) : (
                 <>
+                    {/* Desktop */}
                     <div className="container mx-auto min-h-[150px] z-50">
                         <div className="w-full fixed h-[120px] bg-white left-0"></div>
                         <div className="container fixed bg-white">
@@ -157,16 +150,13 @@ const Header = () => {
                                 {categories.map((item) => (
                                     <li key={item.id}>{item.short}</li>
                                 ))}
-
                             </ul>
                         </div>
                     </div>
-                    <button onClick={handleClickLogo}><LogoMaracuya enter={undefined} /></button>
-                    <p><span className={cls.span}>M</span>aracu<span className={cls.span}>Й</span>a</p>
-                    <Burger enter={handleClick} />
                 </>
-                )}</>
-                )
+            )}
+        </>
+    );
 };
 
 export default Header;

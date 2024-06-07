@@ -26,7 +26,7 @@ const CartModal = ({
             {size.width! < 1024 ? (
                 <>
                     {/* <Mobile /> */}
-                    <div className="fixed top-0 bottom-0 left-0 right-0 pt-[10em] px-[1em] md:px-[5em] lg:px-[10em] overflow-hidden bg-black/[.4] z-50">
+                    <div className="fixed top-0 bottom-0 left-0 right-0 pt-[5em] px-[2em] md:px-[5em] lg:px-[10em] overflow-hidden bg-black/[.4] z-50">
                         {/* закрывает модалку при клике вне компонента*/}
                         <div ref={refProps} className="">
                             <div className="flex justify-between items-center h-[3em] bg-[#f7d22d] px-[2em] mx-[10px] rounded-t-[20px] text-[1.5em] font-[700]">
@@ -36,7 +36,7 @@ const CartModal = ({
                                 </div>
                             </div>
                             <div className="flex flex-col bg-white border-[4px] border-[solid] border-[#f7d22d] mx-[10px] mt-[-1px] px-[15px] rounded-b-[20px]">
-                                <div className="max-h-[50vh] overflow-auto py-[10px]">
+                                <div className="max-h-[50vh] my-[10px] overflow-x-hidden">
                                     {cart.length || cartLocal.length ? (
                                         cartLocal.map((item: any) => (
                                             <CartItem
@@ -45,13 +45,13 @@ const CartModal = ({
                                             />
                                         ))
                                     ) : (
-                                        <p className="text-[5.5em] text-center p-[1.5em] border-b-[1px]">
+                                        <p className="text-[48px] text-center p-[25px] border-b-[1px]">
                                             Корзина пуста
                                         </p>
                                     )}
                                 </div>
                                 <div className="flex flex-col items-end gap-[35px] p-[20px]">
-                                    <div className="flex justify-between text-[3.5em] font-[400] max-w-full gap-12">
+                                    <div className="flex justify-between text-[36px] font-[400] max-w-full gap-12">
                                         <p className="text-end">
                                             Сумма заказа:
                                         </p>
@@ -60,16 +60,16 @@ const CartModal = ({
                                         </p>
                                     </div>
                                     {cart?.length ? (
-                                        <div className="flex justify-end m-[10px] gap-[1.1em] font-[700] text-[3em]">
+                                        <div className="flex justify-end m-[10px] gap-[20px] font-[700] text-[24px]">
                                             <button
                                                 onClick={clearCart}
-                                                className="p-[15px] bg-[#F7D22D] rounded-[20px] text-center"
+                                                className="p-[15px] bg-[#F7D22D] rounded-[20px] text-center w-[200px]"
                                             >
                                                 Очистить корзину
                                             </button>
                                             <Link
                                                 to="/order"
-                                                className="p-[15px] bg-[#F7D22D] rounded-[20px] text-center"
+                                                className="p-[15px] bg-[#F7D22D] rounded-[20px] text-center w-[200px]"
                                             >
                                                 Оформить заказ
                                             </Link>
@@ -77,7 +77,7 @@ const CartModal = ({
                                     ) : (
                                         <button
                                             onClick={closeCart}
-                                            className="font-[700] text-[3em] p-[15px] bg-[#F7D22D] rounded-[20px] text-center"
+                                            className="font-[700] text-[24px] p-[15px] bg-[#F7D22D] rounded-[20px] text-center w-[200px]"
                                         >
                                             Закрыть корзину
                                         </button>
