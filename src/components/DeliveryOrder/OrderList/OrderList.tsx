@@ -28,7 +28,7 @@ const OrderList = () => {
                                         <p className="flex gap-[5px] justify-start items-center text-[0.8em]">
                                             {item.price} x {item.count}шт.
                                         </p>
-                                        <p className="flex justify-end items-center gap-[5px] text-[0.8em]">{item.price * item.count}<Ruble /></p>
+                                        <p className="flex justify-end items-center gap-[5px] text-[0.8em]">{(item.price * item.count).toFixed(2)}<Ruble /></p>
                             </li>
                             <hr className="mx-[10px" />
                             </>

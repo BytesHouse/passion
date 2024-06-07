@@ -10,6 +10,7 @@ import OrderPay from "../OrderPay/OrderPay";
 import Ruble from "../../../assets/icons/Ruble/Ruble";
 import ArrowRight from "../../../assets/icons/ArrowRight/ArrowRight";
 import ArrowLeft from "../../../assets/icons/ArrowLeft/ArrowLeft";
+import { Link } from "react-router-dom";
 
 const OrderForm = () => {
     const form = useRef<any>(null);
@@ -233,12 +234,7 @@ const OrderForm = () => {
                         <OrderPay />
 
                         <div className="flex justify-between items-center">
-                            <div className="flex gap-[15px] items-center">
-                                <p>
-                                    <ArrowLeft />
-                                </p>
-                                <button>Назад в корзину</button>
-                            </div>
+                            <Link to={'/'} className="border px-[150px] py-[30px] flex gap-[15px] items-center"><ArrowLeft /><span>Назад</span></Link>
                             <button
                                 type="submit"
                                 className="flex justify-center items-center h-[120px] lg:h-[60px] w-[420px] lg:w-[300px] bg-[#F7D22D] rounded-[8px] text-[#231F20] text-[30px] lg:text-[15px] font-[800]"
