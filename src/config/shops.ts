@@ -4,6 +4,7 @@ import image3 from '../assets/images/shops/blago.svg'
 import image4 from '../assets/images/shops/miasko.svg'
 import image5 from '../assets/images/shops/products.svg'
 import image6 from '../assets/images/shops/baggete.svg'
+import image7 from '../assets/images/shops/jasmine.svg'
 
 export type ShopsType = {
     id: number,
@@ -20,5 +21,5 @@ export const shops = [
     {id: 3, shopName: 'blagoda', name: 'Благода', image: image3, collectionId: ''},
     {id: 4, shopName: 'miasko', name: 'Мяско', image: image4, collectionId: ''},
     {id: 5, shopName: 'labagete', name: 'LaBagete', image: image6, collectionId: ''},
-    {id: 6, shopName: 'jasmine', name: 'Jasmine Dragon', image: image6, collectionId: 'itx3fMmA0DPcTZKqO5vTKiib6uf2'},
+    {id: 6, shopName: 'jasmine', name: 'Jasmine Dragon', image: image7, collectionId: 'itx3fMmA0DPcTZKqO5vTKiib6uf2'},
     ]
