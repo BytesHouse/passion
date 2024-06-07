@@ -70,7 +70,7 @@ const Products = () => {
                 <>
                     {/* Mobile */}
                     <div>
-                        <section className="mt-[15em]">
+                        <section className="mt-[20px]">
                             <section>
                                 <div className="flex flex-col mx-auto px-[20px] h-full max-w-[1140px] min-w-[380px]">
                                     <div className="relative h-[20px] w-full text-[2em] rounded-[1em] mb-[2em] ">
@@ -86,11 +86,11 @@ const Products = () => {
                                         />
                                     </div>
 
-                                    <h4 className="text-center text-[2.5em] text-black font-[200] mb-[20px]">
+                                    <h4 className="text-center text-[48px] font-[400] mb-[20px]">
                                         Продукты
                                     </h4>
                                     {loading ? (
-                                        <p className="text-center text-[2.5em] text-black font-[200] mb-[20px]">
+                                        <p className="text-center text-[48px] font-[400] mb-[20px]">
                                             Загрузка...
                                         </p>
                                     ) : (

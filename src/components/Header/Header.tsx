@@ -1,8 +1,7 @@
 import LogoMaracuya from "../../assets/icons/LogoMaracuya/LogoMaracuya";
 import Burger from "../../assets/icons/Burger/Burger";
-import cls from "./Header.module.css";
 import { CSSTransition } from "react-transition-group";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
@@ -15,25 +14,16 @@ import { useWindowSize } from "@uidotdev/usehooks";
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
     const dispatch = useDispatch();
+
     const handleClick = () => {
         setIsEnter((prev: boolean) => !prev);
     };
-    useEffect(() => {
-        if (isEnter) {
-            document.body.style.overflow = "hidden";
-            document.body.style.position = "fixed";
-        } else {
-            document.body.style.overflow = "auto";
-            document.body.style.position = "static";
-        }
-    }, [isEnter]);
+
     const handleClickFilter = (category: number) => {
         dispatch(setFilter(category));
-        setIsEnter(false);
     };
     const handleReset = () => {
         dispatch(reset());
-        setIsEnter(false);
     };
 
     const size = useWindowSize();
@@ -43,21 +33,41 @@ const Header = () => {
             {size.width! < 1024 ? (
                 <>
                     {/* Mobile */}
-                    <div className={cls.header}>
-                        <div className={cls.container}>
+                    <div className="w-full mx-auto min-h-[180px] z-50">
+                        <div className="flex justify-between items-center w-full min-w-[320px] mx-auto p-[10px] fixed bg-white border-b-[1px] border-b-[128_128_128_0.2] shadow-[0_4px_8px_rgba(0,0,0,0.1)] z-[10]">
+                            {/* Header */}
+                            <Link to="/">
+                                <LogoMaracuya enter={undefined} />
+                            </Link>
+                            <Link to="/">
+                                <p className="text-[100px] font-[100] font-[Onest]">
+                                    <span className="text-[#ef3a65] font-[400]">
+                                        M
+                                    </span>
+                                    aracu
+                                    <span className="text-[#ef3a65] font-[400]">
+                                        Й
+                                    </span>
+                                    a
+                                </p>
+                            </Link>
+                            <Burger enter={handleClick} />
+
+                            {/* Анимация бургера */}
                             <CSSTransition
                                 in={isEnter}
                                 timeout={5000}
                                 classNames="myclass"
                             >
-                                <div className="my-paragraph">
-                                    <ul className={cls.navi}>
+                                <div className="my-paragraph flex flex-col z-[999]">
+                                    <ul className="flex flex-col justify-between items-center font-[500] text-[36px] h-[75%] overflow-y-auto">
                                         <li onClick={handleReset}>
                                             Все продукты
                                         </li>
                                         {categories.map((category) => {
                                             return (
                                                 <li
+                                                    className="flex text-center"
                                                     onClick={() =>
                                                         handleClickFilter(
                                                             category.category
@@ -70,28 +80,19 @@ const Header = () => {
                                             );
                                         })}
                                         <hr />
-                                        <li className={cls.last}>
-                                            +373 (68) 76-24-27
-                                        </li>
                                     </ul>
+                                    <p className="flex items-center justify-center text-[48px] font-[600] my-[15px] w-full">
+                                        +373 (68) 76-24-27
+                                    </p>
                                     <div
                                         onClick={() => setIsEnter((v) => !v)}
-                                        className="my-div"
+                                        className="px-[15px] m-[25px] border-black border-[1px] rounded-full absolute top-0 right-0 bg-gray-300 text-[64px]"
                                     >
+                                        {/* Значок закрытия модального окна */}
                                         <FontAwesomeIcon icon={faXTwitter} />
                                     </div>
                                 </div>
                             </CSSTransition>
-                            <Link to="/">
-                                <LogoMaracuya enter={undefined} />
-                            </Link>
-                            <Link to="/">
-                                <p>
-                                    <span className={cls.span}>M</span>aracu
-                                    <span className={cls.span}>Й</span>a
-                                </p>
-                            </Link>
-                            <Burger enter={handleClick} />
                         </div>
                     </div>
                 </>

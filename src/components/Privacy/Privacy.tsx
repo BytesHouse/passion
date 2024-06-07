@@ -8,8 +8,10 @@ const Privacy = () => {
         <>
             <ScrollToTop />
             <Header />
-            <div className={cls.privacy}>
-                <h1>Политика конфиденциальности</h1>
+            <div className="mx-[50px] mt-[25px]">
+                <p className="text-[48px] mb-[20px]">
+                    Политика конфиденциальности
+                </p>
                 <strong>1. ОБЩИЕ ПОЛОЖЕНИЯ</strong>
                 <br />
                 · 1.1. Использование Пользователем сайта означает согласие с
