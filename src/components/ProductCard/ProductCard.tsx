@@ -66,7 +66,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             {size.width! < 1024 ? (
                 <div>
                     {/* MObile */}
-                    <li className="border-b-[1px] border-b-[rgba(128,128,128,0.48)] px-[20px] bg-red-50">
+                    <li className="border-b-[1px] border-b-[rgba(128,128,128,0.48)] px-[20px]">
                         <div className="flex gap-[25px]">
                             <div className="flex flex-col justify-center items-center gap-[15px]">
                                 <img

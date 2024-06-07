@@ -1,5 +1,5 @@
 .my-paragraph {
-    padding: 0 200px;
+    /* padding: 0 200px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,10 +9,9 @@
     top: 0;
     left: 0;
     transform: translateY(-100%);
-    z-index: 10;
-    font-size: 3.5em;
-    background-color: #F7D22D;
-    transition: all .5s ease;
+    z-index: 10000;
+    background-color: #f7d22d;
+    transition: all 0.5s ease;
     opacity: 0;
 }
 /* === Enter Transition === */
@@ -31,27 +30,10 @@
     opacity: 1;
 }
 
-.my-div {
-    /* background-image: url('../../assets/images/figerprintIcon.svg'); */
-    /* background-position: 50% 90%; */
-    /* background-repeat: no-repeat; */
-    /* background-size: 50%; */
-    /* padding: 1em 0.5em 2em 0.5em; */
-    /* border: 2px solid black; */
-    border-radius: 2em;
-    padding: 45px 50px;
-    border: 1px solid black;
-    border-radius: 50%;
-    position: absolute;
-    top: 0.5em;
-    right: 0.5em;
-}
-
 @media (max-height: 768px) {
     .my-paragraph {
         height: 768px;
         overflow: auto;
-
     }
     .my-paragraph ul {
         display: grid;

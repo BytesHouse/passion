@@ -90,11 +90,11 @@ const CartModal = ({
             ) : (
                 <>
                     {/* Desktop  */}
-                    <div className="fixed top-0 bottom-0 left-0 right-0 pt-[10em] px-[1em] md:px-[5em] lg:px-[10em] overflow-hidden bg-black/[.4] z-50">
+                    <div className="fixed top-0 bottom-0 left-0 right-0 pt-[10em] px-[1em] md:px-[5em] lg:px-[10em] overflow-hidden bg-black/[.4] z-[999]">
                         {/* закрывает модалку при клике вне компонента*/}
                         <div
                             ref={refProps}
-                            className="fixed bottom-[150px] right-[50px] w-[500px] max-h-[900px] \"
+                            className="fixed bottom-[150px] right-[50px] w-[500px] max-h-[800px]"
                         >
                             <div className="flex justify-between items-center h-[2.5em] bg-[#f7d22d] px-[1.5em] mx-[10px] rounded-t-[20px] text-[20px] font-[600]">
                                 <p>Корзина</p>
@@ -110,7 +110,7 @@ const CartModal = ({
                                     <div className="absolute top-0 right-0 w-[15px] h-[15px] bg-[#f7d22d] z-0"></div>
                                     <div className="absolute top-0 right-0 w-[25px] h-[25px] bg-white rounded-[20px] z-1"></div>
                                 </>
-                                <div className="max-h-[600px] w-full overflow-auto py-[10px] overflow-x-hidden">
+                                <div className="max-h-[520px] w-full overflow-auto py-[10px] overflow-x-hidden z-10">
                                     {cartLocal.length ? (
                                         cartLocal.map((item: any) => (
                                             <CartItem
