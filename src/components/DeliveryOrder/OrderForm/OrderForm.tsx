@@ -128,9 +128,9 @@ const OrderForm = () => {
 
     return (
         <>
-            <div className="w-[60%]">
-                <h2 className="font-[800] text-[32px] leading-[39px] text-[#F7D22D] mb-[15px]">
-                    Заказ на доставку
+            <div className="flex-1">
+                <h2 className="font-[800] text-[1.5em] lg:text-[32px] leading-[39px] text-[#F7D22D] mb-[15px]">
+                    Заказ на доставку:
                 </h2>
 
                 <form ref={form} onSubmit={handleSubmit}>
@@ -149,10 +149,10 @@ const OrderForm = () => {
                         value={formData.message}
                     />
                     <div className="relative flex flex-col text gap-[15px]">
-                        <div className="flex justify-between">
+                        <div className="flex flex-col lg:flex-row justify-between">
                             <label htmlFor="name">Имя</label>
                             <input
-                                className="h-[48px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
+                                className="lg:h-[48px] lg:max-w-[460px] w-full py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
                                 placeholder="Имя"
                                 id="name"
                                 name="name"
@@ -166,10 +166,10 @@ const OrderForm = () => {
                                 </span>
                             )}
                         </div>
-                        <div className="relative flex justify-between">
+                        <div className="flex flex-col lg:flex-row relative justify-between">
                             <label htmlFor="phone">Телефон</label>
                             <input
-                                className="h-[48px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
+                                className="lg:h-[48px] lg:max-w-[460px] w-full py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
                                 placeholder="Orange, Moldcell, IDC"
                                 id="phone"
                                 name="phone"
@@ -183,10 +183,10 @@ const OrderForm = () => {
                                 </span>
                             )}
                         </div>
-                        <div className="relative flex justify-between">
+                        <div className="flex flex-col lg:flex-row relative justify-between">
                             <label htmlFor="email">Электронный адрес</label>
                             <input
-                                className="h-[48px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
+                                className="lg:h-[48px] lg:max-w-[460px] w-full py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
                                 placeholder="Ваш email"
                                 id="email"
                                 name="email"
@@ -200,10 +200,10 @@ const OrderForm = () => {
                                 </span>
                             )}
                         </div>
-                        <div className="relative flex justify-between">
+                        <div className="flex flex-col lg:flex-row relative justify-between">
                             <label htmlFor="address">Адрес</label>
                             <input
-                                className="h-[120px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
+                                className="lg:h-[120px] lg:max-w-[460px] w-full py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
                                 placeholder="ул. Ленина д. 101, кв. 4"
                                 id="address"
                                 name="address"
@@ -217,11 +217,11 @@ const OrderForm = () => {
                                 </span>
                             )}
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex flex-col lg:flex-row justify-between">
                             <label htmlFor="address">Комментарий</label>
                             <input
-                                className="h-[48px] w-[540px] py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
-                                placeholder="Побыстрее"
+                                className="lg:h-[48px] lg:max-w-[460px] w-full py-[10px] pl-[19px] border-[1.5px] border-[#E2E2E9] rounded-[7px]"
+                                placeholder="Побыстрее пожалуйста..."
                                 id="time"
                                 name="time"
                                 type="text"
@@ -241,18 +241,19 @@ const OrderForm = () => {
                             </div>
                             <button
                                 type="submit"
-                                className="flex justify-center items-center h-[60px] w-[300px] bg-[#F7D22D] rounded-[8px] text-[#231F20] text-[15px] font-[800]"
+                                className="flex justify-center items-center h-[120px] lg:h-[60px] w-[420px] lg:w-[300px] bg-[#F7D22D] rounded-[8px] text-[#231F20] text-[30px] lg:text-[15px] font-[800]"
                                 disabled={isLoading}
                             >
                                 {isLoading
                                     ? "Отправка..."
-                                    : `Оформить заказ на ${totalWithDelivery}`}
+                                    // : `Оформить заказ на ${totalWithDelivery}`}
+                                    : `Оформить заказ`}
                                 {!isLoading && (
                                     <div className="flex justify-between items-center gap-[14px]">
-                                        <p className="[&>svg]:h-[16px] [&>svg]:w-[16px] pt-[5px]">
+                                        <p className="hidden lg:block [&>svg]:h-[16px] [&>svg]:w-[16px] pt-[5px]">
                                             <Ruble />
                                         </p>
-                                        <ArrowRight />
+                                        <span className="hidden lg:block"><ArrowRight /></span>
                                     </div>
                                 )}
                             </button>

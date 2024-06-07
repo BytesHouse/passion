@@ -20,11 +20,9 @@ const DeliveryOrder = () => {
     return (
         <>
             <Header />
-            <div className="px-[20px] mt-[200px] lg:mt-[1.2em] w-full lg:w-[80%]">
-                <div className="flex font-[600] text-[17px] leading-[28px]">
+            <div className="lg:container mx-auto px-[20px] mt-[1.2em] w-full lg:w-[80%] flex flex-col-reverse lg:flex-row gap-[30px] font-[600] text-[2.5em] lg:text-[17px] lg:leading-[28px]">
                     <OrderForm />
                     <OrderList />
-                </div>
             </div>
             <Footer />
         </>
