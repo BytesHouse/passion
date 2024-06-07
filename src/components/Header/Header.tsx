@@ -14,11 +14,18 @@ import { useWindowSize } from "@uidotdev/usehooks";
 const Header = () => {
     const [isEnter, setIsEnter] = useState(false);
     const dispatch = useDispatch();
-
     const handleClick = () => {
         setIsEnter((prev: boolean) => !prev);
     };
-
+    useEffect(() => {
+        if (isEnter) {
+            document.body.style.overflow = "hidden";
+            document.body.style.position = "fixed";
+        } else {
+            document.body.style.overflow = "auto";
+            document.body.style.position = "static";
+        }
+    }, [isEnter]);
     const handleClickFilter = (category: number) => {
         dispatch(setFilter(category));
     };

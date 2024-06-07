@@ -53,6 +53,7 @@ const CartItem = ({ item }: { item: any }) => {
                                 <button
                                     onClick={decrement}
                                     className="text-[24px] text-[black] bg-[#F7D22D] py-[10px] px-[20px] rounded-[8px]"
+
                                 >
                                     -
                                 </button>
