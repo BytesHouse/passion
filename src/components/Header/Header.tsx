@@ -1,7 +1,7 @@
 import LogoMaracuya from "../../assets/icons/LogoMaracuya/LogoMaracuya";
 import Burger from "../../assets/icons/Burger/Burger";
 import { CSSTransition } from "react-transition-group";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
