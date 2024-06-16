@@ -2,6 +2,7 @@ declare module "*.module.css";
 declare module '*.png';
 declare module '*.jpeg';
 declare module '*.jpg';
+declare module '*.svg';
 declare module '*.webp';
 declare module "react-transition-group";
 declare module "@fortawesome/react-fontawesome";

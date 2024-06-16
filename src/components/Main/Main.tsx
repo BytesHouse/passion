@@ -16,7 +16,7 @@ const Main = () => {
     return (
         <>
             <section className="container flex flex-col justify-center items-center gap-[20px] mx-auto mt-[20px] mb-[120px] font-[200] text-[2.5em]">
-                <h4 className="text-[48px] font-[400]">Выберите магазин:</h4>
+                <h4 className="text-[1.5em] font-bold text-center">Дубоссары: Лучшие заведения и магазины</h4>
                 <ul className="flex gap-[1em] flex-wrap justify-around">
                     {shops.map((e: ShopsType) => (
                         <Link
