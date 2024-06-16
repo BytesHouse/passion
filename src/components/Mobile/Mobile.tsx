@@ -1,7 +1,7 @@
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
-import AddressComponent from "../AddressComponent/AddressComponent";
+import { InfoBlock } from "../InfoBlock/InfoBlock";
 
 interface MobileProps {
     handleShowModal: () => void;
@@ -15,6 +15,7 @@ const Mobile = ({handleShowModal, showModal, setShowModal, refProps}: MobileProp
     return (
         <>
             <Header />
+            <InfoBlock/>
             <Main />
             <Footer />
         </>
